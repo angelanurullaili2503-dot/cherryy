@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10070c">
+<meta name="description" content="Angela Store — katalog aplikasi premium dengan harga dan paket yang jelas.">
+<title>Angela Store — Premium App Boutique</title>
+<style>
+/* Offline-friendly: gunakan font sistem agar halaman tetap rapi tanpa internet. */
+:root{
+ --ink:#352631;--muted:#897681;--pink:#d96f98;--pink2:#f3b6cb;
+ --pale:#fff2f6;--cream:#fffaf7;--line:#f0dce4;--gold:#c69b62;
+ --white:#fff;--shadow:0 18px 50px rgba(112,58,81,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#fff8fb 0%,#fffdfb 46%,#fff7fa 100%);color:var(--ink);font-family:'DM Sans',sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.topline{height:4px;background:linear-gradient(90deg,#d96f98,#f3c9a4,#d96f98)}
+header{position:sticky;top:0;z-index:30;background:rgba(255,250,252,.94);backdrop-filter:blur(16px);border-bottom:1px solid #f2e2e8}
+.nav{max-width:1180px;margin:auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;min-width:max-content}
+.brandmark{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#f7c5d7,#d96f98);display:grid;place-items:center;color:white;font-family:Georgia,serif;font-size:25px;box-shadow:0 6px 16px #d96f9840}
+.brandname{font-weight:800;letter-spacing:.11em;font-size:15px}
+.brandname small{display:block;color:var(--muted);font-size:9px;letter-spacing:.2em;margin-top:3px}
+.navlinks{display:flex;align-items:center;gap:26px;font-size:12px;font-weight:700;color:#725d68}
+.navlinks a:hover{color:var(--pink)}
+.cartnav{border:0;background:var(--ink);color:white;padding:11px 16px;border-radius:999px;font-size:12px;font-weight:700}
+.cartnav span{background:#fff;color:var(--pink);border-radius:50%;padding:2px 6px;margin-left:5px}
+main{max-width:1180px;margin:auto;padding:0 24px}
+.hero{padding:64px 0 42px;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:42px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#b45c7f;background:#fff0f5;border:1px solid #f4d8e3;border-radius:999px;padding:8px 13px;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,70px);line-height:1.03;letter-spacing:-.04em;margin:19px 0 16px}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero p{max-width:520px;color:var(--muted);line-height:1.85;font-size:14px}
+.heroactions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.primary,.secondary{border-radius:12px;padding:13px 19px;font-size:12px;font-weight:800;border:1px solid var(--pink)}
+.primary{background:var(--pink);color:white;box-shadow:0 8px 20px #d96f9830}
+.secondary{background:white;color:var(--pink)}
+.heroart{min-height:330px;border-radius:30px;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 20%,#fff 0 10%,transparent 11%),linear-gradient(145deg,#f9dce7,#fff0f4 55%,#f7e8d9);border:1px solid #f3dce5;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center}
+.heroart:before,.heroart:after{content:"";position:absolute;border:1px solid #fff9;border-radius:50%;width:280px;height:280px}
+.heroart:after{width:360px;height:360px}
+.hero-emblem{position:relative;z-index:1;text-align:center}
+.crown{font-size:40px;color:var(--gold);text-shadow:0 5px 12px #b78b5440}
+.hero-emblem strong{display:block;font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,54px);letter-spacing:.03em;color:#a84e73;text-shadow:0 2px white}
+.hero-emblem small{display:block;letter-spacing:.23em;font-size:10px;font-weight:800;color:#8e6878;margin-top:8px}
+.spark{position:absolute;color:#fff;font-size:25px;text-shadow:0 2px 8px #d96f98}
+.spark.s1{top:35px;left:45px}.spark.s2{right:42px;top:70px}.spark.s3{bottom:42px;left:70px}.spark.s4{right:80px;bottom:35px}
+.trustrow{display:flex;gap:22px;flex-wrap:wrap;margin-top:27px;color:#8d7882;font-size:11px}
+.trustrow span:before{content:"✦";color:var(--pink);margin-right:7px}
+.section{padding:35px 0}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
+.kicker{color:var(--pink);font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+h2{font-family:'Playfair Display',serif;font-size:31px;margin:7px 0 0;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:12px;line-height:1.7;margin-top:8px}
+.catalogtools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:22px 0}
+.searchbox{flex:1;min-width:220px;position:relative}
+.searchbox input{width:100%;border:1px solid var(--line);background:white;border-radius:13px;padding:14px 16px 14px 42px;outline:none;font-size:12px}
+.searchbox input:focus{border-color:var(--pink);box-shadow:0 0 0 3px #d96f9818}
+.searchicon{position:absolute;left:15px;top:12px;color:#b38d9d}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{border:1px solid var(--line);background:white;border-radius:999px;padding:10px 13px;font-size:10px;font-weight:700;color:#806c76}
+.filter.active,.filter:hover{background:var(--ink);border-color:var(--ink);color:white}
+.resultcount{font-size:11px;color:var(--muted);margin:7px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.product{background:white;border:1px solid var(--line);border-radius:19px;padding:17px;transition:.22s;box-shadow:0 7px 24px rgba(112,58,81,.035);display:flex;flex-direction:column;min-height:205px}
+.product:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#eab8cb}
+.producttop{display:flex;align-items:center;gap:11px}
+.applogo{width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:#fff5f8;border:1px solid #f3e3e9;display:grid;place-items:center;overflow:hidden}
+.applogo img{width:30px;height:30px;object-fit:contain}
+.applogo .fallback{font-weight:800;color:#b45c7f;font-size:15px}
+.product h3{font-size:14px;margin:0 0 4px}
+.categorytag{font-size:9px;color:#a18b95}
+.productprice{font-size:12px;font-weight:800;color:#b6537a;margin:16px 0 5px}
+.productmeta{font-size:10px;color:#98858e;line-height:1.5;margin-bottom:13px}
+.cardbottom{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.packagecount{font-size:9px;color:#a08c95}
+.detailbtn{border:0;background:#fff0f5;color:#b6537a;border-radius:9px;padding:9px 12px;font-size:10px;font-weight:800}
+.detailbtn:hover{background:var(--pink);color:white}
+.notice{border:1px solid #f0dfc9;background:#fffaf1;border-radius:15px;padding:15px 17px;color:#856b4c;font-size:11px;line-height:1.7;margin-top:22px}
+.notice strong{color:#765631}
+.cartsection{background:linear-gradient(135deg,#fff0f5,#fffaf7);border:1px solid #f0dce4;border-radius:24px;padding:25px;margin:30px 0 55px}
+.carthead{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.carthead h2{font-size:27px}
+.cartempty{padding:25px 0;color:#a28f98;font-size:12px}
+.cartrow{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;border-bottom:1px solid #efdde5;padding:13px 0;font-size:11px}
+.cartrow strong{display:block;font-size:12px;margin-bottom:4px}
+.cartrow small{color:#927d87}
+.cartrow button{border:0;background:transparent;color:#c45d83;font-size:11px}
+.cartsummary{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:20px;flex-wrap:wrap}
+.total{font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+.total small{display:block;font-family:'DM Sans',sans-serif;font-size:10px;color:var(--muted);font-weight:400;margin-top:4px}
+.checkout{background:var(--ink);color:white;border:0;border-radius:12px;padding:14px 21px;font-weight:800;font-size:11px}
+.checkout:disabled{opacity:.4;cursor:not-allowed}
+.infoGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 50px}
+.info{background:white;border:1px solid var(--line);border-radius:16px;padding:18px}
+.info b{font-size:12px}.info p{font-size:10px;line-height:1.7;color:var(--muted);margin-bottom:0}
+footer{background:#34252e;color:#f9eaf0;padding:35px 24px;text-align:center}
+footer .footbrand{font-family:'Playfair Display',serif;font-size:25px;letter-spacing:.07em}
+footer p{font-size:10px;color:#d6bac6;line-height:1.8}
+.modalback{position:fixed;inset:0;background:#25182099;z-index:60;display:none;align-items:center;justify-content:center;padding:16px}
+.modalback.show{display:flex}
+.modal{background:#fffafc;width:min(560px,100%);max-height:88vh;overflow:auto;border-radius:22px;padding:23px;box-shadow:0 25px 80px #1d10194d}
+.modalhead{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.modalhead h3{font-family:'Playfair Display',serif;font-size:24px;margin:0}
+.close{border:0;background:#f8e8ef;border-radius:50%;width:34px;height:34px;color:#9e5573;font-size:18px}
+.modalintro{font-size:11px;line-height:1.7;color:var(--muted);margin:12px 0 18px}
+.optionlist{display:grid;gap:9px}
+.option{border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;align-items:center;gap:10px;background:white}
+.option input{accent-color:var(--pink)}
+.optiontext{flex:1;font-size:11px;line-height:1.55}
+.optiontext small{display:block;color:#a18d96;margin-top:2px}
+.optionprice{font-size:12px;font-weight:800;color:#b6537a;white-space:nowrap}
+.addrow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+.addrow .primary{border:0}
+.qty{width:65px;border:1px solid var(--line);border-radius:9px;padding:10px}
+.addon{margin-top:12px;background:#fff4e8;border-radius:11px;padding:11px;font-size:10px;color:#856b4c}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#34252e;color:white;padding:12px 18px;border-radius:999px;font-size:11px;z-index:90;display:none}
+.toast.show{display:block}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{gap:22px}}
+@media(max-width:650px){
+ .nav{padding:12px 16px}.navlinks{display:none}main{padding:0 16px}
+ .hero{grid-template-columns:1fr;padding:42px 0 25px;gap:23px}
+ .heroart{min-height:230px}.hero h1{font-size:48px}
+ .sectionhead{display:block}h2{font-size:27px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .product{padding:13px;min-height:195px;border-radius:15px}
+ .applogo{width:40px;height:40px;flex-basis:40px}
+ .product h3{font-size:12px}.productprice{font-size:11px}
+ .detailbtn{padding:8px 9px}.packagecount{font-size:8px}
+ .infoGrid{grid-template-columns:1fr}
+ .cartsection{padding:18px}.cartrow{grid-template-columns:1fr auto}
+ .cartrow .remove{grid-column:2}
+}
+@media(max-width:370px){.grid{grid-template-columns:1fr}.hero h1{font-size:42px}}
+
+/* ===== ANGELA STORE DREAMY KAWAII THEME ===== */
+:root{
+ --ink:#39263f;--muted:#897b98;--pink:#d979aa;--pink2:#f6bfd8;
+ --pale:#fff0f8;--cream:#fffafd;--line:#ead9f1;--gold:#e4bd73;
+ --white:#fff;--shadow:0 14px 34px rgba(130,91,151,.14);
+}
+body{
+ background:
+  radial-gradient(ellipse at 8% 8%,rgba(255,255,255,.95) 0 2%,transparent 14%),
+  radial-gradient(ellipse at 92% 17%,rgba(255,255,255,.75) 0 3%,transparent 16%),
+  radial-gradient(ellipse at 18% 48%,rgba(224,207,255,.34),transparent 25%),
+  radial-gradient(ellipse at 88% 70%,rgba(255,213,232,.45),transparent 28%),
+  linear-gradient(145deg,#f4e8ff 0%,#ffeaf4 42%,#fff7f5 72%,#f1eaff 100%);
+ background-attachment:fixed;
+}
+body:before,body:after{content:"✦     ·      ✧        ♡       ✦       ·       ✧";position:fixed;z-index:-1;pointer-events:none;color:rgba(255,255,255,.88);font-size:24px;letter-spacing:22px;white-space:nowrap;text-shadow:0 0 12px #fff,0 0 22px #d8b5ef;animation:starDrift 18s ease-in-out infinite alternate}
+body:before{top:12%;left:-20px}body:after{bottom:12%;right:-25px;animation-duration:23s}
+@keyframes starDrift{from{transform:translate3d(0,-10px,0);opacity:.45}to{transform:translate3d(18px,18px,0);opacity:1}}
+header{background:rgba(255,247,252,.88);border-bottom:1px solid rgba(220,194,231,.75);box-shadow:0 5px 24px rgba(126,91,149,.07)}
+.brandmark{background:linear-gradient(145deg,#e7d8ff,#e9a9cd);border:2px solid white;box-shadow:0 5px 14px #c99ccf55}
+.brandname{color:#553d61}.brandname small{color:#a07eaa}
+.navlinks{color:#695674}.navlinks a:hover{color:#c5689c}
+.cartnav{background:linear-gradient(135deg,#a88bd0,#d879aa);box-shadow:0 5px 14px #bd8bc344}
+.hero{padding-top:48px}
+.eyebrow{background:rgba(255,255,255,.72);border-color:#ead5f0;color:#9c6eaa;box-shadow:0 4px 12px #bca2cf20}
+.hero h1{color:#49324f}.hero h1 em{color:#d879aa}
+.hero p{color:#87778f}
+.primary{background:linear-gradient(135deg,#d879aa,#b88bd2);border-color:transparent;box-shadow:0 7px 18px #c88ab244}
+.secondary{border-color:#d9b1d7;color:#9869a9;background:#fff9fd}
+.heroart{min-height:340px;border:2px solid rgba(255,255,255,.9);background:
+ radial-gradient(circle at 72% 22%,#fff 0 8%,transparent 8.5%),
+ radial-gradient(ellipse at 12% 100%,#fff8 0 16%,transparent 17%),
+ radial-gradient(ellipse at 90% 100%,#fff9 0 18%,transparent 19%),
+ linear-gradient(145deg,#e7dafa 0%,#f9ddeb 54%,#fff0d9 100%);box-shadow:0 16px 38px rgba(138,103,159,.17)}
+.heroart:before{width:78%;height:72%;border:1px solid #fff9;box-shadow:inset 0 0 35px #fff7}
+.heroart:after{width:96%;height:90%;border:1px dashed #fff9}
+.hero-emblem{padding:25px 32px;border-radius:28px;background:rgba(255,255,255,.23);backdrop-filter:blur(4px);animation:softFloat 5s ease-in-out infinite}
+.hero-emblem strong{color:#8f5a8d;text-shadow:0 2px 0 #fff,0 5px 18px #fff8}
+.hero-emblem small{color:#8c7096}
+.crown{color:#d6ad68;text-shadow:0 3px 12px #a47bb766}
+.spark{animation:twinkle 2.8s ease-in-out infinite alternate;color:#fff;text-shadow:0 0 9px #fff,0 0 18px #d9a9dc}
+.spark.s2{animation-delay:.8s}.spark.s3{animation-delay:1.3s}.spark.s4{animation-delay:.4s}
+@keyframes twinkle{from{opacity:.45;transform:scale(.82) rotate(-8deg)}to{opacity:1;transform:scale(1.18) rotate(10deg)}}
+@keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.trustrow{color:#907b9b}.trustrow span:before{color:#c28cce}
+.section{scroll-margin-top:85px}
+.kicker{color:#b47ab8}
+h2{color:#49334f}
+.searchbox input{background:rgba(255,255,255,.86);border-color:#e8d8ee;box-shadow:0 5px 16px #ad8cbd16}
+.searchicon{color:#aa83b5}
+.filter{background:rgba(255,255,255,.82);border-color:#e8d9ef;color:#806b8c}
+.filter.active,.filter:hover{background:linear-gradient(135deg,#a88bd0,#d879aa);border-color:transparent;color:white;box-shadow:0 5px 13px #bd8bc344}
+.product{border:1px solid rgba(226,205,237,.95);background:rgba(255,255,255,.91);box-shadow:0 7px 20px rgba(125,91,145,.09);backdrop-filter:blur(5px)}
+.product:hover{border-color:#d9b2df;box-shadow:0 14px 30px rgba(125,91,145,.18)}
+.applogo{background:linear-gradient(145deg,#fff7fc,#f2eaff);border-color:#eee0f2}
+.productprice{color:#bd669d}
+.detailbtn{background:#f5eafa;color:#9b6bad}
+.detailbtn:hover{background:linear-gradient(135deg,#a88bd0,#d879aa);color:white}
+.notice{background:rgba(255,250,242,.9);border-color:#eedfca;color:#8b765b;box-shadow:0 5px 18px #a9876810}
+.cartsection{background:linear-gradient(135deg,rgba(255,239,248,.96),rgba(242,234,255,.96));border-color:#ead8ef;box-shadow:0 10px 28px rgba(126,91,149,.09)}
+.cartrow{border-color:#e7d8ed}.cartrow button{color:#bd669d}
+.checkout{background:linear-gradient(135deg,#9e80c4,#d879aa);box-shadow:0 7px 18px #bd8bc344}
+.info{background:rgba(255,255,255,.88);border-color:#eadbef;box-shadow:0 6px 18px #9678aa12}
+footer{background:linear-gradient(120deg,#cdbbe9,#e8c3df);color:#49334f;border-top:1px solid #fff}
+footer p{color:#715b7e}
+.modal{background:#fffaff;border:1px solid #ead9ef}
+.close{background:#f3e8fa;color:#9868aa}
+.option{border-color:#eadbef}.option:has(input:checked){border-color:#d99bc9;background:#fff5fb}
+.option input{accent-color:#c477b2}.optionprice{color:#bd669d}
+.addon{background:#fff6e9;color:#896d4e}
+.toast{background:linear-gradient(135deg,#8066a6,#c66f9f);box-shadow:0 8px 24px #8f6ba655}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+
+/* Dedicated cart and checkout screens */
+.pageview{display:none;min-height:calc(100vh - 74px);padding:30px 0 65px;scroll-margin-top:90px}
+.pageview.active{display:block;animation:pageEnter .35s ease both}
+body.subpage-open main,body.subpage-open footer{display:none}
+.pagewrap{max-width:820px;margin:0 auto;padding:0 24px}
+.backlink{border:1px solid #e8d9ef;background:rgba(255,255,255,.82);color:#8c68a1;border-radius:999px;padding:10px 15px;font-size:11px;font-weight:800;box-shadow:0 5px 14px #9678aa12}
+.pagehero{padding:35px 0 20px}
+.pagehero h2{font-size:clamp(30px,5vw,42px);margin-top:8px}
+.pagehero p{font-size:12px;line-height:1.7;color:var(--muted);margin-top:9px}
+.pagepanel{background:rgba(255,255,255,.92);border:1px solid #eadbef;border-radius:24px;padding:24px;box-shadow:0 14px 38px rgba(126,91,149,.11);backdrop-filter:blur(8px)}
+.paneltitle{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;font-weight:800;color:#594365;padding-bottom:15px;border-bottom:1px solid #f0e4f2}
+.softpill{background:#f5eafa;color:#9a70aa;border-radius:999px;padding:6px 10px;font-size:9px;white-space:nowrap}
+.pageview .cartrow{grid-template-columns:minmax(0,1fr) auto auto;gap:12px;padding:17px 0;font-size:11px}
+.pageview .cartrow strong{font-size:12px;color:#503d59}
+.pageview .cartrow small{display:block;line-height:1.6;margin-top:5px}
+.pageview .cartrow b{color:#b45f98;white-space:nowrap}
+.pageview .cartrow .remove{background:#fff1f7;border-radius:8px;padding:7px 10px}
+.pageview .cartempty{padding:35px 10px;text-align:center;line-height:1.8}
+.pageview .cartsummary{border-top:1px solid #f0e4f2;padding-top:20px}
+.pageview .total{color:#563d5f}
+.pageview .total small{max-width:330px;line-height:1.6}
+.pageview .checkout{font-size:11px;padding:14px 19px}
+.pagehint{margin-top:16px;border:1px solid #eadcf0;background:rgba(255,255,255,.65);border-radius:14px;padding:13px 15px;font-size:10px;line-height:1.7;color:#8a7394}
+.checkoutSummaryRow{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid #f0e4f2;font-size:11px}
+.checkoutSummaryRow strong{display:block;color:#503d59;font-size:12px;margin-bottom:5px}
+.checkoutSummaryRow small{display:block;color:#907e99;line-height:1.7}
+.checkoutSummaryRow b{color:#b45f98;white-space:nowrap}
+.checkoutGrand{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:19px 0 13px;font-weight:800;color:#563d5f}
+.checkoutGrand strong{font-family:'Playfair Display',serif;font-size:24px;color:#b45f98}
+.customerlabel{display:block;font-size:11px;font-weight:800;color:#634c70;margin-top:17px;margin-bottom:7px}
+.customerlabel span{font-weight:400;color:#a28fa9}
+.customerinput{width:100%;border:1px solid #e8d9ef;border-radius:12px;padding:13px 14px;background:#fffaff;outline:none;font-size:12px;color:#49334f}
+.customerinput:focus{border-color:#d49aca;box-shadow:0 0 0 3px #d49aca22}
+.checkoutnotice{background:#fff7eb;border:1px solid #f0e1c8;border-radius:13px;padding:13px;margin:16px 0;color:#866f50;font-size:10px;line-height:1.7}
+.sendorder{width:100%;margin-top:4px;background:linear-gradient(135deg,#8cbd91,#58a86c);box-shadow:0 8px 20px #64aa7840}
+.editorder{width:100%;margin-top:10px;border:1px solid #e8d9ef;background:#fffaff;color:#9670a5;border-radius:12px;padding:12px;font-size:11px;font-weight:800}
+.optionmeaning{display:block;margin-top:7px;padding:8px 9px;background:#fbf6fd;border-radius:9px;color:#806c8d;font-size:10px;line-height:1.6}
+.warrantyline{display:block;margin-top:5px;font-size:10px;font-weight:800;color:#9868a9}
+.warrantyline.no{color:#b56b75}
+.warrantyline.unknown{color:#a17e53}
+@keyframes pageEnter{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){
+ .pagewrap{padding:0 16px}.pagepanel{padding:17px;border-radius:19px}
+ .pagehero{padding-top:28px}.pageview .cartrow{grid-template-columns:minmax(0,1fr) auto;gap:7px}
+ .pageview .cartrow .remove{grid-column:2;justify-self:end}
+ .pageview .cartsummary{align-items:stretch}.pageview .cartsummary .checkout{width:100%}
+ .checkoutGrand strong{font-size:21px}
+}
+
+
+/* Angela Store — refined ambient motion */
+body:before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:
+ radial-gradient(ellipse at 12% 18%,rgba(246,203,222,.32),transparent 34%),
+ radial-gradient(ellipse at 88% 26%,rgba(218,205,239,.34),transparent 33%),
+ radial-gradient(ellipse at 52% 92%,rgba(255,226,205,.3),transparent 36%);
+ animation:ambientDrift 22s ease-in-out infinite alternate}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.25;background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#d8b5d8 1px,transparent 1.5px);background-size:110px 110px,170px 170px;background-position:0 0,55px 65px;animation:starDrift 36s linear infinite}
+@keyframes ambientDrift{0%{transform:translate3d(-1%,0,0) scale(1)}100%{transform:translate3d(1%,1.5%,0) scale(1.06)}}
+@keyframes starDrift{from{background-position:0 0,55px 65px}to{background-position:110px 160px,225px 235px}}
+.heroart{animation:heroFloat 7s ease-in-out infinite}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.spark{animation:sparkPulse 4s ease-in-out infinite}
+.spark.s2{animation-delay:1s}.spark.s3{animation-delay:2s}.spark.s4{animation-delay:2.8s}
+@keyframes sparkPulse{0%,100%{opacity:.45;transform:scale(.88) rotate(-8deg)}50%{opacity:1;transform:scale(1.15) rotate(8deg)}}
+.product{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
+.product:hover{transform:translateY(-7px);box-shadow:0 22px 48px rgba(112,58,81,.14);border-color:#e7c7d8}
+.product:nth-child(3n+1){animation:cardReveal .65s both}
+.product:nth-child(3n+2){animation:cardReveal .8s both}
+.product:nth-child(3n){animation:cardReveal .95s both}
+@keyframes cardReveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+button,.primary,.secondary,.detailbtn{transition:transform .2s ease,box-shadow .25s ease,background .25s ease}
+button:active,.primary:active,.secondary:active,.detailbtn:active{transform:scale(.97)}
+.navactions{display:flex;align-items:center;gap:9px}
+.soundtoggle{border:1px solid #ead8e4;background:rgba(255,255,255,.8);color:#8b6e84;border-radius:999px;padding:10px 12px;font-size:11px;font-weight:700;white-space:nowrap}
+.soundtoggle[aria-pressed="true"]{background:#f1e9f7;border-color:#d8c2e5;color:#78558c}
+.soundtoggle span{margin-left:4px}
+@media(max-width:700px){.navactions{gap:6px}.soundtoggle{padding:9px 10px}.soundtoggle span{display:none}.nav{gap:8px}.brandname{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* =========================================================
+   ANGELA STORE — BLACK CHERRY LUXURY THEME
+   Visual-only upgrade. Existing HTML structure and JavaScript
+   interactions are intentionally preserved.
+   ========================================================= */
+:root{
+ --ink:#fff0f5;--muted:#c5a7b4;--pink:#ff3f78;--pink2:#ff9bb8;
+ --pale:#250b16;--cream:#10070c;--line:rgba(255,91,137,.28);--gold:#f4c879;
+ --white:#fff8fb;--shadow:0 18px 55px rgba(0,0,0,.48);
+ color-scheme:dark;
+}
+html{background:#080407;scroll-padding-top:90px}
+body{
+ color:#fff0f5;
+ background:
+  radial-gradient(ellipse at 8% 8%,rgba(117,8,43,.28),transparent 32%),
+  radial-gradient(ellipse at 92% 18%,rgba(100,5,38,.25),transparent 30%),
+  radial-gradient(ellipse at 50% 100%,rgba(74,4,29,.24),transparent 42%),
+  linear-gradient(145deg,#080407 0%,#13070d 48%,#090407 100%);
+ background-attachment:fixed;
+}
+body:before,body:after{content:"";position:fixed;pointer-events:none;z-index:0}
+body:before{
+ inset:0;opacity:.28;
+ background-image:radial-gradient(circle,rgba(255,104,151,.8) 1px,transparent 1.7px),radial-gradient(circle,rgba(255,220,231,.6) 1px,transparent 1.8px);
+ background-size:118px 118px,197px 197px;background-position:0 0,57px 83px;
+ animation:cherryDust 34s linear infinite;
+}
+body:after{
+ inset:8px;border:1px solid rgba(255,53,111,.24);border-radius:18px;
+ box-shadow:inset 0 0 22px rgba(255,31,95,.055),0 0 20px rgba(255,31,95,.08);
+ z-index:50;opacity:.8;
+}
+@keyframes cherryDust{to{background-position:118px 236px,254px 0}}
+.topline{height:3px;background:linear-gradient(90deg,#3c071b,#ff2e70,#ffd0dc,#ff2e70,#3c071b);background-size:240% 100%;animation:ledFlow 5s linear infinite;box-shadow:0 0 15px #ff286c,0 0 28px #ff286c66}
+@keyframes ledFlow{to{background-position:240% 0}}
+header{background:rgba(8,4,7,.88);border-bottom:1px solid rgba(255,72,124,.3);box-shadow:0 9px 35px rgba(0,0,0,.42);backdrop-filter:blur(20px)}
+.nav{position:relative;z-index:2}
+.brandmark{background:linear-gradient(145deg,#ff8eae,#9e092f 62%,#370713);border:1px solid #ff9ab5;color:#fff;box-shadow:0 0 15px #ff286c77,inset 0 1px 8px #ffffff55}
+.brandmark{font-size:0}
+.brandmark:after{content:"🍒";font-size:24px;filter:drop-shadow(0 0 7px #ff477b)}
+.brandname{color:#fff0f5;letter-spacing:.13em;text-shadow:0 0 18px #ff477b55}
+.brandname small{color:#d49aaa}
+.navlinks{color:#e8cbd5}
+.navlinks a{transition:color .2s,text-shadow .2s}
+.navlinks a:hover{color:#ff83a8;text-shadow:0 0 12px #ff3d78}
+.cartnav{background:linear-gradient(135deg,#ff477e,#9e082f 72%);border:1px solid #ff9bb7;box-shadow:0 0 16px #ff286c66,inset 0 1px 8px #ffffff30;color:#fff}
+.cartnav span{background:#fff0f5;color:#9d1038}
+main{position:relative;z-index:1}
+.hero{padding-top:62px;padding-bottom:48px}
+.eyebrow{color:#ffabc1;background:rgba(83,8,31,.55);border:1px solid rgba(255,100,145,.55);box-shadow:0 0 18px rgba(255,44,108,.15),inset 0 0 14px rgba(255,65,119,.08)}
+.hero h1{color:#fff4f7;text-shadow:0 7px 35px #000}
+.hero h1 em{background:linear-gradient(100deg,#fff0f5,#ff7fa4 48%,#c40c43);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 17px #ff2b6b55)}
+.hero p{color:#d2b5c0}
+.primary,.secondary{border-radius:999px;padding:14px 21px}
+.primary{color:white;background:linear-gradient(110deg,#ff477e,#c10c43 58%,#740a2c);border:1px solid #ff9bb7;box-shadow:0 0 12px #ff286c66,0 8px 28px #a4003c55,inset 0 1px 8px #ffffff3b}
+.primary:hover{box-shadow:0 0 22px #ff286caa,0 10px 35px #a4003c77;transform:translateY(-2px)}
+.secondary{background:rgba(24,8,15,.8);border:1px solid #a83a5c;color:#ffd5e0}
+.secondary:hover{background:#3a0b1c;box-shadow:0 0 18px #ff286c44}
+.heroart{
+ min-height:350px;border:1px solid rgba(255,104,147,.72);border-radius:28px;isolation:isolate;
+ background:
+  radial-gradient(circle at 50% 48%,rgba(255,30,91,.25),transparent 29%),
+  radial-gradient(ellipse at 50% 110%,rgba(119,5,39,.65),transparent 55%),
+  linear-gradient(145deg,#210914,#090407 58%,#310817);
+ box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 28px rgba(255,37,102,.18),inset 0 0 45px rgba(255,40,102,.09);
+ animation:heroHover 7s ease-in-out infinite;
+}
+.heroart:before{width:75%;height:75%;border:1px solid rgba(255,145,174,.38);box-shadow:0 0 28px #ff3a7755,inset 0 0 30px #ff3a771c;animation:ringTurn 24s linear infinite}
+.heroart:after{content:"🍒";width:auto;height:auto;border:0;border-radius:0;font-size:clamp(100px,16vw,170px);filter:drop-shadow(0 12px 24px #ff174f88);animation:cherryBob 5s ease-in-out infinite;transform-origin:center}
+@keyframes heroHover{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes ringTurn{to{transform:rotate(360deg)}}
+@keyframes cherryBob{0%,100%{transform:translateY(0) rotate(-3deg) scale(1)}50%{transform:translateY(-12px) rotate(3deg) scale(1.035)}}
+.hero-emblem{z-index:2;padding:18px 24px;border-radius:22px;background:rgba(12,4,8,.62);border:1px solid rgba(255,125,160,.28);backdrop-filter:blur(8px);box-shadow:0 12px 35px #0008}
+.hero-emblem strong{color:#fff0f5;text-shadow:0 0 15px #ff3b77,0 2px #4d081e}
+.hero-emblem small{color:#e8a5b8}
+.crown{color:#ffd17d;text-shadow:0 0 15px #ffc56c99}
+.spark{color:#ffdce6;text-shadow:0 0 8px #fff,0 0 22px #ff2b70}
+.trustrow{color:#c8a8b5}.trustrow span:before{color:#ff668e;text-shadow:0 0 8px #ff286c}
+.section{position:relative;z-index:1;scroll-margin-top:95px}
+.kicker{color:#ff789d;text-shadow:0 0 13px #ff286c55}
+h2{color:#fff0f5;text-shadow:0 4px 24px #000}
+.sub{color:#c4a8b3}
+.catalogtools{margin-top:24px}
+.searchbox input,.customerinput{background:rgba(22,8,15,.92);border:1px solid rgba(255,90,137,.34);color:#fff0f5;box-shadow:inset 0 0 15px #0006}
+.searchbox input::placeholder,.customerinput::placeholder{color:#9c7b88}
+.searchbox input:focus,.customerinput:focus{border-color:#ff6b96;box-shadow:0 0 0 3px #ff397522,0 0 18px #ff397733}
+.searchicon{color:#ff91ad}
+.filter{background:rgba(28,9,17,.88);border:1px solid rgba(255,90,137,.3);color:#e5c4cf}
+.filter.active,.filter:hover{background:linear-gradient(120deg,#ff477e,#9c0b35);border-color:#ff91ad;color:#fff;box-shadow:0 0 16px #ff286c55}
+.resultcount{color:#c4a8b3}
+.grid{gap:17px}
+.product{
+ position:relative;isolation:isolate;overflow:hidden;
+ background:linear-gradient(145deg,rgba(43,13,26,.96),rgba(14,6,10,.97));
+ border:1px solid rgba(255,83,133,.34);border-radius:19px;color:#fff0f5;
+ box-shadow:0 10px 30px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.06);
+ transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;
+}
+.product:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(255,155,181,.65),transparent 28%,transparent 70%,rgba(255,48,108,.55));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:-1}
+.product:after{content:"";position:absolute;width:150px;height:150px;right:-85px;top:-90px;border-radius:50%;background:#ff225c22;filter:blur(15px);pointer-events:none}
+.product:hover{transform:translateY(-7px);border-color:#ff8cab;box-shadow:0 18px 42px #0009,0 0 22px #ff286c2c,inset 0 1px 0 #fff2}
+.product h3{color:#fff2f6}.categorytag{color:#d6aab9}
+.applogo{background:linear-gradient(145deg,#3c1022,#170710);border:1px solid #9c3558;box-shadow:inset 0 0 14px #0008,0 0 12px #ff286c22}
+.applogo .fallback{color:#ff9db8}
+.productprice{color:#ff8eac;text-shadow:0 0 12px #ff286c44}
+.productmeta,.packagecount{color:#c2a3af}
+.detailbtn{background:linear-gradient(120deg,#501126,#260a16);border:1px solid #9e3a5d;color:#ffc4d4;border-radius:999px}
+.detailbtn:hover{background:linear-gradient(120deg,#ff477e,#a80a39);border-color:#ff9bb7;color:white;box-shadow:0 0 15px #ff286c77}
+.notice{background:linear-gradient(120deg,rgba(43,24,17,.94),rgba(23,11,12,.95));border:1px solid rgba(224,166,103,.34);color:#e3c6a8;box-shadow:0 8px 25px #0005}
+.notice strong{color:#ffd49b}
+.cartsection{background:linear-gradient(135deg,rgba(51,10,27,.96),rgba(17,6,11,.97));border:1px solid rgba(255,89,137,.42);box-shadow:0 16px 40px #0008,0 0 20px #ff286c18}
+.carthead h2{color:#fff0f5}
+.cartempty{color:#c6a7b4}
+.cartrow{border-color:rgba(255,100,145,.2)}.cartrow small{color:#c5a6b2}.cartrow button{color:#ff8eac}
+.total{color:#fff0f5}.total small{color:#c4a8b3}
+.checkout{background:linear-gradient(120deg,#ff477e,#a50938);border:1px solid #ff9bb7;box-shadow:0 0 16px #ff286c55;color:#fff}
+.checkout:hover:not(:disabled){box-shadow:0 0 24px #ff286c99;transform:translateY(-2px)}
+.info{background:linear-gradient(145deg,rgba(42,13,25,.95),rgba(15,6,10,.97));border:1px solid rgba(255,90,137,.28);box-shadow:0 10px 28px #0006;color:#fff0f5}
+.info b{color:#ffd6e1}.info p{color:#c3a5b2}
+footer{position:relative;z-index:1;background:linear-gradient(120deg,#17060e,#090407 55%,#260817);color:#ffeaf1;border-top:1px solid rgba(255,79,127,.42);box-shadow:0 -12px 40px #0007}
+footer .footbrand{color:#ffdce6;text-shadow:0 0 18px #ff286c66}
+footer p{color:#c9a9b6}
+.modalback{background:rgba(3,1,3,.84);backdrop-filter:blur(8px)}
+.modal{background:linear-gradient(145deg,#260b17,#10060c);border:1px solid rgba(255,100,145,.52);color:#fff0f5;box-shadow:0 25px 80px #000c,0 0 35px #ff286c22}
+.modalhead h3{color:#fff0f5}.close{background:#4a1025;color:#ffc4d5;border:1px solid #a23c5e}
+.modalintro{color:#c7a8b5}
+.option{background:rgba(20,7,13,.92);border:1px solid rgba(255,94,140,.25);color:#fff0f5}
+.option:has(input:checked){border-color:#ff6d98;background:#3a0e20;box-shadow:0 0 16px #ff286c2c}
+.option input{accent-color:#ff477e}.optiontext{color:#ffeaf0}.optiontext small{color:#c4a2b0}.optionprice{color:#ff91ad}
+.optionmeaning{background:#310d1e;color:#e1bdca;border:1px solid #68213b}
+.warrantyline{color:#ff9ab5}.warrantyline.no{color:#ffb18e}.warrantyline.unknown{color:#e9c88d}
+.addon{background:#321c14;border:1px solid #8d6338;color:#f0d0a2}
+.toast{background:linear-gradient(120deg,#ff477e,#85092e);color:white;box-shadow:0 8px 28px #0009,0 0 18px #ff286c66;border:1px solid #ff9bb7}
+/* Cart / checkout full-page views */
+.pageview{position:relative;z-index:1;color:#fff0f5}
+.pagehero h2{color:#fff0f5}.pagehero p{color:#c5a7b4}
+.backlink{background:#210a15;border:1px solid #87304e;color:#ffc4d5;box-shadow:0 5px 16px #0006}
+.backlink:hover{background:#451027;box-shadow:0 0 15px #ff286c44}
+.pagepanel{background:linear-gradient(145deg,rgba(42,12,25,.97),rgba(13,5,9,.98));border:1px solid rgba(255,91,137,.4);box-shadow:0 18px 48px #0009,0 0 24px #ff286c18}
+.paneltitle{color:#ffeaf0;border-color:rgba(255,91,137,.22)}
+.softpill{background:#4a1027;color:#ffc6d6;border:1px solid #87304e}
+.pageview .cartrow{border-color:rgba(255,91,137,.2)}
+.pageview .cartrow strong,.checkoutSummaryRow strong{color:#fff0f5}
+.pageview .cartrow small,.checkoutSummaryRow small{color:#c4a5b2}
+.pageview .cartrow b,.checkoutSummaryRow b,.checkoutGrand strong{color:#ff91ad}
+.pageview .cartrow .remove{background:#451027;color:#ffb5c9;border:1px solid #81304d}
+.pageview .total{color:#fff0f5}.pageview .total small{color:#c4a5b2}
+.checkoutGrand{color:#ffeaf0;border-color:rgba(255,91,137,.2)}
+.customerlabel{color:#ffdce6}.customerlabel span{color:#b995a4}
+.checkoutnotice{background:#2c1b12;border:1px solid #79552f;color:#f0d2a7}
+.sendorder{background:linear-gradient(120deg,#ff477e,#a50938);border:1px solid #ff9bb7;box-shadow:0 0 18px #ff286c55}
+.editorder{background:#210a15;border:1px solid #87304e;color:#ffc4d5}
+.pagehint{background:rgba(32,9,19,.88);border:1px solid rgba(255,91,137,.28);color:#d4b2bf}
+/* Floating edge-light accents */
+.heroart,.cartsection,.pagepanel{outline:1px solid rgba(255,70,121,.12);outline-offset:4px}
+button,.primary,.secondary,.detailbtn,.filter,.cartnav{transition:transform .22s ease,box-shadow .28s ease,background .28s ease,border-color .28s ease}
+button:active,.primary:active,.secondary:active,.detailbtn:active{transform:scale(.97)}
+@media(max-width:850px){.hero{gap:25px}.heroart{min-height:290px}}
+@media(max-width:650px){
+ body:after{inset:4px;border-radius:11px;opacity:.55}
+ .hero{padding-top:38px;gap:25px}.heroart{min-height:230px;border-radius:21px}
+ .heroart:after{font-size:112px}.hero-emblem{padding:13px 18px}
+ .hero h1{font-size:clamp(39px,11vw,55px)}
+ .product{padding:14px}.product:hover{transform:translateY(-3px)}
+ .pagepanel{padding:17px;border-radius:19px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+
+/* ===== MUSIC, MINI ARCADE & MANUAL ANGELA ASSISTANT ===== */
+.navactions{gap:7px}.soundtoggle{border-color:#8d2949;background:linear-gradient(145deg,#260b17,#10060c);color:#ffd5e0;box-shadow:0 0 12px #ff286c24}.soundtoggle:hover{border-color:#ff83a8;box-shadow:0 0 18px #ff286c66;transform:translateY(-2px)}
+.utilityDock{position:fixed;right:16px;bottom:18px;z-index:75;display:flex;flex-direction:column;gap:9px;align-items:flex-end}
+.dockBtn{border:1px solid #ff789d;background:linear-gradient(135deg,#ff477e,#760a2b);color:white;border-radius:999px;padding:12px 16px;font-size:12px;font-weight:800;box-shadow:0 8px 25px #0009,0 0 17px #ff286c55;display:flex;align-items:center;gap:8px}
+.dockBtn small{font-size:9px;font-weight:600;opacity:.82}.dockBtn:hover{transform:translateY(-3px);box-shadow:0 12px 30px #000b,0 0 23px #ff286c88}
+.musicPanel{position:fixed;right:16px;top:82px;width:min(340px,calc(100vw - 32px));z-index:80;display:none;background:linear-gradient(145deg,#2b0a19,#0c0509);border:1px solid #ff6b96;border-radius:20px;padding:17px;color:#fff0f5;box-shadow:0 22px 70px #000c,0 0 28px #ff286c33}
+.musicPanel.show{display:block;animation:pageEnter .25s ease}.musicTop{display:flex;justify-content:space-between;align-items:center;gap:10px}.musicTop b{font-family:'Playfair Display',serif;font-size:18px}.musicClose{border:1px solid #78304a;background:#350d20;color:#ffdce6;border-radius:50%;width:30px;height:30px}
+.musicDisc{height:112px;margin:14px 0;border-radius:14px;background:radial-gradient(circle,#ff9ab5 0 7%,#a50e3d 8% 24%,#1b0710 25% 45%,#080407 46%);display:grid;place-items:center;font-size:36px;box-shadow:inset 0 0 25px #ff477e44,0 0 18px #ff286c33;position:relative;overflow:hidden}.musicDisc:after{content:"ANGELA CHERRY RADIO";position:absolute;bottom:9px;font-size:8px;letter-spacing:3px;color:#ffd5e0}.musicDisc.playing{animation:discSpin 7s linear infinite}@keyframes discSpin{to{transform:rotate(360deg)}}
+.musicActions{display:flex;gap:8px;flex-wrap:wrap}.musicAction{border:1px solid #a23c5e;background:#3a0e20;color:#ffe7ee;border-radius:10px;padding:9px 11px;font-size:10px;font-weight:800}.musicHint{font-size:10px;color:#c8a5b4;line-height:1.6;margin:10px 0}.musicPanel input[type=file]{width:100%;font-size:10px;color:#d9b9c5}.musicPanel audio{width:100%;height:34px;margin-top:8px;accent-color:#ff477e}
+.subpage{display:none;min-height:calc(100vh - 70px);padding:30px 0 70px;position:relative;z-index:2}.subpage.active{display:block;animation:pageEnter .3s ease}.subpage .pagewrap{max-width:980px}.arcadeTitle{text-align:center;padding:20px 0 24px}.arcadeTitle .kicker{letter-spacing:4px}.arcadeTitle h1{font:800 clamp(30px,6vw,48px) 'Playfair Display',serif;color:#fff0f5;margin:10px 0;text-shadow:0 0 24px #ff286c55}.arcadeTitle p{font-size:12px;color:#c6a5b3}.gameGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.gameCard{border:1px solid #8b2a4b;border-radius:19px;padding:18px;background:linear-gradient(145deg,#310d1e,#10060c);color:#fff0f5;text-align:left;box-shadow:0 12px 28px #0008;transition:.25s;min-height:165px}.gameCard:hover{transform:translateY(-5px);border-color:#ff8cab;box-shadow:0 15px 35px #000a,0 0 18px #ff286c44}.gameEmoji{font-size:35px;display:block;margin-bottom:12px;filter:drop-shadow(0 0 10px #ff286c55)}.gameCard b{display:block;font-size:14px}.gameCard small{display:block;color:#c4a4b2;line-height:1.55;margin-top:6px;font-size:10px}.gameStage{display:none;border:1px solid #a43a5c;border-radius:22px;padding:20px;background:linear-gradient(145deg,#280b18,#0c0509);box-shadow:0 15px 40px #0009}.gameStage.active{display:block}.gameStage h2{font-size:25px;margin:0 0 7px}.gameStage p{font-size:11px;color:#c7a7b5;line-height:1.6}.gameTools{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0}.gameBtn{border:1px solid #ff789d;background:linear-gradient(120deg,#e92b65,#780b2e);color:white;border-radius:999px;padding:10px 15px;font-size:11px;font-weight:800}.gameBtn.alt{background:#260b17;border-color:#87304d;color:#ffdce6}.gameBoard{margin:18px auto;max-width:370px}.tttBoard{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.tttCell{aspect-ratio:1;border:1px solid #a83b60;border-radius:15px;background:linear-gradient(145deg,#310d20,#10060c);color:#ff8cab;font-size:clamp(30px,9vw,55px);font-weight:900;box-shadow:inset 0 0 20px #0008}.tttCell:disabled{opacity:1}.memoryBoard{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.memoryCell{aspect-ratio:1;border:1px solid #a43b5d;border-radius:12px;background:linear-gradient(145deg,#5a1230,#190710);color:#ffe4ec;font-size:clamp(20px,6vw,32px);font-weight:800}.memoryCell.open{background:#250a16;border-color:#ff8eaa}.whackBoard{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.whackCell{aspect-ratio:1;border:1px solid #91324f;border-radius:50%;background:radial-gradient(circle,#310d20,#10060c);font-size:clamp(25px,8vw,42px)}
+#snakeCanvas{display:block;width:min(100%,340px);height:auto;margin:12px auto;border:1px solid #a83b60;border-radius:14px;background:#080407;touch-action:none}.snakeControls{display:grid;grid-template-columns:repeat(3,46px);gap:5px;justify-content:center}.snakeControls button{height:38px;border:1px solid #9d3a5a;border-radius:9px;background:#320d20;color:white;font-weight:900}
+.blockBoard{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;width:min(100%,350px);margin:auto}.blockCell{aspect-ratio:1;border:1px solid #582039;border-radius:5px;background:#170810}.blockCell.filled{background:linear-gradient(145deg,#ff6b96,#9d0b3a);border-color:#ffabc1;box-shadow:inset 0 0 8px #fff4}.blockPieces{display:flex;justify-content:center;gap:12px;margin:15px 0}.pieceChoice{border:1px solid #8f3553;border-radius:10px;background:#260b17;padding:10px;color:#fff;display:flex;gap:4px}.pieceChoice.selected{border-color:#ff9ab5;box-shadow:0 0 14px #ff286c66}.pieceDot{width:13px;height:13px;border-radius:3px;background:#ff6b96}
+.gameStatus{text-align:center;color:#ffb4c8;font-size:12px;font-weight:800;min-height:22px}.gameBack{margin-bottom:12px}.gameScore{color:#ffd6e1;font-weight:800;font-size:12px}.gameBackline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.chatLauncher{position:fixed;right:17px;bottom:78px;z-index:76;border:1px solid #ffabc1;border-radius:50%;width:56px;height:56px;background:linear-gradient(145deg,#ff477e,#850a32);color:white;font-size:24px;box-shadow:0 9px 28px #000a,0 0 18px #ff286c66}.chatPanel{position:fixed;right:17px;bottom:145px;width:min(360px,calc(100vw - 34px));height:min(500px,calc(100vh - 190px));z-index:85;display:none;flex-direction:column;overflow:hidden;border:1px solid #ff789d;border-radius:20px;background:linear-gradient(160deg,#280b18,#0b0509);box-shadow:0 25px 75px #000d,0 0 25px #ff286c33}.chatPanel.show{display:flex;animation:pageEnter .25s ease}.chatHead{padding:14px 15px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(120deg,#6f0a2b,#270914);border-bottom:1px solid #a43a5d}.chatHead b{font-family:'Playfair Display',serif;font-size:17px;color:#fff0f5}.chatHead small{display:block;font:9px 'DM Sans',sans-serif;color:#ffd0dc;margin-top:3px}.chatMessages{padding:13px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:9px}.chatBubble{max-width:88%;padding:10px 12px;border-radius:13px;font-size:11px;line-height:1.65;white-space:pre-wrap}.chatBubble.bot{align-self:flex-start;background:#3a1022;border:1px solid #77304a;color:#ffeaf0;border-bottom-left-radius:4px}.chatBubble.user{align-self:flex-end;background:linear-gradient(120deg,#d92761,#7e0b30);color:white;border-bottom-right-radius:4px}.chatSuggestions{display:flex;gap:6px;overflow:auto;padding:0 12px 9px}.chatSuggestions button{white-space:nowrap;border:1px solid #80304b;background:#260b17;color:#ffdce6;border-radius:999px;padding:7px 9px;font-size:9px}.chatInputRow{display:flex;gap:7px;padding:11px;border-top:1px solid #6b263e}.chatInputRow input{min-width:0;flex:1;border:1px solid #79304a;border-radius:10px;background:#12070d;color:white;padding:11px;font-size:11px;outline:none}.chatInputRow button{border:0;border-radius:10px;background:#e62d67;color:white;padding:0 13px;font-size:11px;font-weight:800}
+@media(max-width:700px){.nav{flex-wrap:wrap}.navactions{margin-left:auto}.soundtoggle span{display:inline;font-size:9px}.soundtoggle{padding:8px 9px;font-size:10px}.gameGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.gameCard{padding:14px;min-height:150px}.gameCard b{font-size:12px}.gameStage{padding:14px}.utilityDock{right:12px;bottom:12px}.chatLauncher{right:13px;bottom:72px}.chatPanel{right:12px;bottom:137px}}
+@media(max-width:390px){.gameGrid{grid-template-columns:1fr 1fr}.navactions{gap:4px}.soundtoggle{padding:7px}.brandname{font-size:10px}}
+
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header>
+ <div class="nav">
+  <a class="brand" href="#home">
+   <span class="brandmark">A</span>
+   <span class="brandname">ANGELA STORE<small>PREMIUM APP BOUTIQUE</small></span>
+  </a>
+  <nav class="navlinks">
+   <a href="#home">Beranda</a><a href="#catalog">Katalog</a><a href="#cara-order">Cara Order</a><a href="#kontak">Kontak</a>
+  </nav>
+  <div class="navactions">
+   <button class="soundtoggle" id="musicOpen" type="button" onclick="openMusicPanel()">♫ <span>Music</span></button><button class="soundtoggle" id="gamesOpen" type="button" onclick="openGames()">✦ <span>Mini Games</span></button>
+   <button class="cartnav" onclick="openCartPage()">Keranjang <span id="cartcount">0</span></button>
+  </div>
+ </div>
+</header>
+
+<div class="musicPanel" id="musicPanel" aria-label="Pemutar musik">
+ <div class="musicTop"><b>🍒 Cherry Music Lounge</b><button class="musicClose" onclick="closeMusicPanel()">×</button></div>
+ <div class="musicDisc" id="musicDisc">♫</div>
+ <div style="font-size:12px;font-weight:800">Putar lagu favoritmu</div>
+ <p class="musicHint">Pilih file lagu MP3 dari HP untuk diputar di website. Untuk lagu dengan vokal, kamu juga bisa mencari lagu legal dari pustaka musik bebas lisensi.</p>
+ <input id="musicFile" type="file" accept="audio/*" onchange="loadMusicFile(event)">
+ <audio id="storeAudio" controls preload="none"></audio>
+ <div class="musicActions" style="margin-top:10px"><button class="musicAction" onclick="playCherryJingle()">▶ Putar jingle Angela</button><button class="musicAction" onclick="stopCherryJingle()">■ Stop</button><a class="musicAction" href="https://pixabay.com/music/search/vocals/" target="_blank" rel="noopener">Cari lagu vokal ↗</a></div>
+ <p class="musicHint" id="musicStatus">Musik tidak otomatis menyala. Kamu yang mengatur kapan musik diputar.</p>
+</div>
+
+
+<main>
+<section class="hero" id="home">
+ <div>
+  <div class="eyebrow">✦ Your premium digital store</div>
+  <h1>Small price.<br><em>Premium</em> experience.</h1>
+  <p>Temukan aplikasi premium favoritmu di Angela Store. Pilih paket dengan informasi harga, durasi, dan garansi yang jelas sebelum melakukan pemesanan.</p>
+  <div class="heroactions">
+   <a class="primary" href="#catalog">Jelajahi katalog ↗</a>
+   <a class="secondary" href="#cara-order">Cara pemesanan</a>
+  </div>
+  <div class="trustrow"><span>Harga transparan</span><span>Detail paket jelas</span><span>Order via WhatsApp</span></div>
+ </div>
+ <div class="heroart">
+  <span class="spark s1">✧</span><span class="spark s2">♡</span><span class="spark s3">✦</span><span class="spark s4">✧</span>
+  <div class="hero-emblem"><div class="crown">♛</div><strong>ANGELA</strong><strong>STORE</strong><small>PREMIUM APP BOUTIQUE</small></div>
+ </div>
+</section>
+
+<section class="section" id="catalog">
+ <div class="sectionhead">
+  <div><div class="kicker">Curated for you</div><h2>Temukan paket favoritmu</h2><div class="sub">Pilih aplikasi untuk melihat pilihan paket, arti istilah, cara penggunaan, harga, dan status garansinya.</div></div>
+ </div>
+ <div class="catalogtools">
+  <div class="searchbox"><span class="searchicon">⌕</span><input id="search" type="search" placeholder="Cari aplikasi, misalnya Spotify..."></div>
+  <div class="filters" id="filters">
+   <button class="filter active" data-cat="Semua">Semua</button>
+   <button class="filter" data-cat="Design & Editing">Design & Editing</button>
+   <button class="filter" data-cat="AI & Productivity">AI & Productivity</button>
+   <button class="filter" data-cat="Streaming">Streaming</button>
+   <button class="filter" data-cat="Music">Music</button>
+   <button class="filter" data-cat="Education">Education</button>
+   <button class="filter" data-cat="YouTube">YouTube</button>
+  </div>
+ </div>
+ <div class="resultcount" id="resultcount"></div>
+ <div class="grid" id="productgrid"></div>
+ <div class="notice"><strong>Informasi sebelum order:</strong> Semua harga ditampilkan sesuai daftar harga Angela Store. Stok dan ketersediaan dapat berubah, sehingga admin akan mengonfirmasi pesanan sebelum pembayaran. Baca ketentuan paket dan garansi sebelum checkout.</div>
+</section>
+
+<section class="section" id="cara-order">
+ <div class="kicker">Simple & easy</div><h2>Cara melakukan pemesanan</h2>
+ <div class="infoGrid">
+  <div class="info"><b>01 — Pilih aplikasi</b><p>Buka katalog, cari aplikasi yang kamu inginkan, lalu tekan tombol Lihat Paket.</p></div>
+  <div class="info"><b>02 — Pilih paket</b><p>Baca arti paket, cara penggunaan, durasi, dan status garansi. Masukkan pilihanmu ke keranjang.</p></div>
+  <div class="info"><b>03 — Checkout</b><p>Periksa ringkasan belanja di halaman checkout, lalu kirim pesan pesanan yang sudah tersusun otomatis ke WhatsApp admin.</p></div>
+ </div>
+</section>
+
+<section class="section" id="kontak">
+ <div class="kicker">Need assistance?</div><h2>Butuh bantuan memilih paket?</h2>
+ <div class="sub">Hubungi admin Angela Store untuk bertanya mengenai stok, detail akun, atau ketentuan garansi.</div>
+ <button class="primary" style="margin-top:17px" onclick="contactAdmin()">Chat Admin WhatsApp ↗</button>
+</section>
+</main>
+<footer>
+ <div class="footbrand">♛ ANGELA STORE ♛</div>
+ <p>Premium App Boutique<br>Terima kasih sudah berbelanja. Semoga pengalaman digitalmu makin menyenangkan ♡</p>
+ <p>© 2026 Angela Store. All rights reserved.</p>
+</footer>
+
+<section class="subpage" id="gamesPage">
+ <div class="pagewrap">
+  <div class="gameBackline"><button class="gameBtn alt" onclick="leaveSubpage()">← Kembali ke toko</button><span class="gameScore">ANGELA MINI ARCADE 🍒</span></div>
+  <div class="arcadeTitle"><div class="kicker">PLAY • RELAX • ENJOY</div><h1>Cherry Mini Games</h1><p>Area hiburan kecil untuk pelanggan Angela Store. Pilih permainan favoritmu!</p></div>
+  <div class="gameGrid" id="gameGrid">
+   <button class="gameCard" onclick="startGame('ttt')"><span class="gameEmoji">⭕</span><b>Tic Tac Toe</b><small>Adu strategi X melawan O. Main berdua atau lawan komputer.</small></button>
+   <button class="gameCard" onclick="startGame('block')"><span class="gameEmoji">🧩</span><b>Block Blast</b><small>Susun balok dan penuhi baris atau kolom untuk mendapat skor.</small></button>
+   <button class="gameCard" onclick="startGame('memory')"><span class="gameEmoji">🃏</span><b>Memory Match</b><small>Buka kartu dan temukan semua pasangan yang sama.</small></button>
+   <button class="gameCard" onclick="startGame('whack')"><span class="gameEmoji">🍒</span><b>Cherry Pop</b><small>Ketuk cherry yang muncul sebanyak mungkin sebelum waktu habis.</small></button>
+   <button class="gameCard" onclick="startGame('snake')"><span class="gameEmoji">🐍</span><b>Neon Snake</b><small>Kendalikan ular neon, makan buah, dan jangan menabrak.</small></button>
+  </div>
+  <div class="gameStage" id="gameStage">
+   <div class="gameBackline"><button class="gameBtn alt" onclick="backToGameMenu()">← Daftar game</button><span class="gameScore" id="gameScore">SCORE 0</span></div>
+   <h2 id="gameName">Game</h2><p id="gameDesc"></p><div class="gameStatus" id="gameStatus">Siap bermain!</div>
+   <div id="gameBoard" class="gameBoard"></div>
+   <div class="gameTools"><button class="gameBtn" id="gameRestart" onclick="restartCurrentGame()">↻ Mulai ulang</button><span class="gameScore" id="gameExtra"></span></div>
+  </div>
+ </div>
+</section>
+<div class="utilityDock"><button class="dockBtn" onclick="openGames()">🎮 <span>Mini Games <small>5 permainan</small></span></button></div>
+<button class="chatLauncher" onclick="toggleChat()" aria-label="Buka chat bantuan">✦</button>
+<div class="chatPanel" id="chatPanel">
+ <div class="chatHead"><div><b>Angela Assistant</b><small>Asisten toko • Memahami pertanyaan bertahap & bahasa sehari-hari</small></div><button class="musicClose" onclick="toggleChat()">×</button></div>
+ <div class="chatMessages" id="chatMessages"><div class="chatBubble bot">Halo! 🍒 Aku Angela Assistant. Aku bisa bantu menjelaskan produk, paket, harga, arti istilah, garansi, login, cara order, keranjang, dan checkout. Tanyakan dengan bahasa sehari-hari. Aku bisa mengikuti konteks produk dan pertanyaan lanjutan; jika datanya tidak tersedia, aku akan menyarankan konfirmasi admin.</div></div>
+ <div class="chatSuggestions"><button onclick="askQuick('Cara order')">Cara order</button><button onclick="askQuick('Garansi')">Garansi</button><button onclick="askQuick('Netflix')">Netflix</button><button onclick="askQuick('Spotify')">Spotify</button><button onclick="askQuick('Pembayaran')">Pembayaran</button></div>
+ <div class="chatInputRow"><input id="chatInput" type="text" placeholder="Tulis pertanyaan..." onkeydown="if(event.key==='Enter')sendChat()"><button onclick="sendChat()">Kirim</button></div>
+</div>
+
+
+
+<section class="pageview" id="cartPage">
+ <div class="pagewrap">
+  <button class="backlink" onclick="goBackInStore()">← Kembali ke katalog</button>
+  <div class="pagehero">
+   <div class="kicker">YOUR SELECTION · 01</div>
+   <h2>Keranjang Pesanan ♡</h2>
+   <p>Periksa kembali pilihan paketmu sebelum melanjutkan ke checkout.</p>
+  </div>
+  <div class="pagepanel">
+   <div class="paneltitle"><span>🛍️ Daftar pilihanmu</span><span class="softpill" id="cartPageCount">0 produk</span></div>
+   <div id="cartitems" class="cartempty">Keranjangmu masih kosong. Yuk, pilih paket favoritmu ♡</div>
+   <div class="cartsummary">
+    <div class="total" id="total">Total: Rp0<small>Harga sementara. Stok dan total akhir dikonfirmasi admin.</small></div>
+    <button class="checkout" id="checkout" onclick="goCheckout()" disabled>Lanjut ke Checkout →</button>
+   </div>
+  </div>
+  <div class="pagehint">🎀 Pastikan pilihan paket, durasi, dan garansi sudah sesuai sebelum checkout.</div>
+ </div>
+</section>
+
+<section class="pageview" id="checkoutPage">
+ <div class="pagewrap">
+  <button class="backlink" onclick="goBackInStore()">← Kembali ke keranjang</button>
+  <div class="pagehero">
+   <div class="kicker">ORDER CONFIRMATION · 02</div>
+   <h2>Checkout Pesanan ✨</h2>
+   <p>Satu langkah lagi! Periksa ringkasan pesanan, lalu kirim langsung ke admin Angela Store.</p>
+  </div>
+  <div class="pagepanel">
+   <div class="paneltitle"><span>🧾 Ringkasan pesanan</span><span class="softpill">Angela Store</span></div>
+   <div id="checkoutSummary"></div>
+   <label class="customerlabel" for="customerName">Nama pemesan <span>(opsional)</span></label>
+   <input id="customerName" class="customerinput" type="text" maxlength="60" placeholder="Tulis nama kamu">
+   <div class="checkoutnotice">💗 <b>Informasi:</b> Pesanan akan dikirim ke admin untuk pengecekan stok, ketentuan paket, dan konfirmasi pembayaran. Belum ada pembayaran otomatis melalui website.</div>
+   <button class="checkout sendorder" onclick="sendWhatsAppOrder()">🎀 Kirim Pesanan ke Admin WhatsApp</button>
+   <button class="editorder" onclick="openCartPage()">Ubah pesanan</button>
+  </div>
+  <div class="pagehint">Setelah WhatsApp terbuka, periksa kembali pesan yang sudah disiapkan lalu tekan tombol kirim di WhatsApp.</div>
+ </div>
+</section>
+
+<div class="modalback" id="modalback" onclick="if(event.target===this)closeModal()">
+ <div class="modal">
+  <div class="modalhead"><h3 id="modalname">Nama aplikasi</h3><button class="close" onclick="closeModal()">×</button></div>
+  <div class="modalintro" id="modalintro"></div>
+  <div class="optionlist" id="optionlist"></div>
+  <div id="addonarea"></div>
+  <div class="addrow"><label style="font-size:11px;color:#88737e">Jumlah <input class="qty" id="qty" type="number" min="1" max="10" value="1"></label><button class="primary" onclick="addSelected()">Tambahkan ke keranjang</button></div>
+ </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const WA_ADMIN = "6283138756940";
+const products = [
+ {name:"Canva",cat:"Design & Editing",domain:"canva.com",desc:"Fitur Designer tambahan Rp500 sudah termasuk dalam harga paket. Tidak ada biaya Designer tambahan saat checkout. Paket sehabis habisnya masa adalah penawaran khusus.",packages:[
+  ["Member 1 bulan",7000],["Member 2 bulan",8000],["Member 3 bulan",9500],["Renew 1 tahun",13000],["Owner 1 bulan",13000],["Admin 1 bulan",10000],["Edu Lifetime",17000],["Sehabis habisnya masa",10000]
+ ]},
+ {name:"CapCut",cat:"Design & Editing",domain:"capcut.com",desc:"Perhatikan ketentuan garansi tiap jenis akun. Paket sharing tidak memiliki garansi.",packages:[
+  ["Sharing 2U 1 bulan",17000,"Tanpa garansi"],["Private 1 minggu",11000,"Garansi 5 hari"],["Private 1 bulan",40000,"Garansi 15 hari"]
+ ]},
+ {name:"DazzCam",cat:"Design & Editing",domain:"dazzcam.com",desc:"Paket Lifetime hanya untuk perangkat iOS.",packages:[["Lifetime — iOS only",15000,"Garansi 3 bulan"]]},
+ {name:"Meitu",cat:"Design & Editing",domain:"meitu.com",packages:[["Private 1 minggu",13500],["Private 1 bulan",30000]]},
+ {name:"PicsArt",cat:"Design & Editing",domain:"picsart.com",packages:[["Private 1 bulan",25000],["Sharing 1 bulan",15000]]},
+ {name:"Lightroom",cat:"Design & Editing",domain:"adobe.com",packages:[["1 bulan",15000],["1 tahun",30000]]},
+ {name:"Alight Motion",cat:"Design & Editing",domain:"alightmotion.com",desc:"Harga tidak menggunakan tambahan markup.",packages:[["1 tahun — Personal account",15000],["1 tahun — Akun dari seller",10000]]},
+ {name:"Remini Web",cat:"Design & Editing",domain:"remini.ai",desc:"Login melalui website. Dapat digunakan melalui iOS maupun Android. Stok perlu dikonfirmasi.",packages:[["Private 1 bulan",33000],["Sharing 1 bulan",17000]]},
+ {name:"Wink",cat:"Design & Editing",domain:"wink.meitu.com",packages:[["Private 1 minggu",13500],["Private 1 bulan",30000]]},
+ {name:"ChatGPT",cat:"AI & Productivity",domain:"chatgpt.com",desc:"Go memiliki batas penggunaan dan garansi 25 hari. Plus menggunakan sistem pre-order, menunggu 8 orang untuk mempertahankan atau memesan paket; garansi 25 hari.",packages:[["Go Sharing 1 bulan",21000,"Garansi 25 hari"],["Plus Sharing 1 bulan",60000,"Pre-order • Garansi 25 hari"]]},
+ {name:"Gemini",cat:"AI & Productivity",domain:"gemini.google.com",packages:[["Private Invite 1 bulan",23000,"Garansi 20 hari"],["Private Invite 3 bulan",45000,"Garansi 80 hari"]]},
+ {name:"GetContact",cat:"AI & Productivity",domain:"getcontact.com",desc:"Proses bergantung pada jadwal OTP.",packages:[["Private 1 bulan",17000]]},
+ {name:"Disney+",cat:"Streaming",domain:"disneyplus.com",desc:"Paket 6U. Tambahan 2 perangkat dapat dipilih sebagai add-on sebesar Rp5.000.",addon:{label:"Tambahan 2 perangkat",price:5000},packages:[["1 bulan — 6U",25000],["3 bulan — 6U",55000],["Daily 7 hari",14000]]},
+ {name:"iQIYI",cat:"Streaming",domain:"iq.com",packages:[["Sharing 1 bulan — STD",10000],["Sharing 1 bulan — Premium",15000],["Sharing 1 tahun — Premium",30000],["Private 1 bulan — STD",40000],["Private 1 bulan — Premium",47000]]},
+ {name:"Loklok",cat:"Streaming",domain:"loklok.com",packages:[["Basic Sharing 1 bulan",20000],["Basic Private 1 bulan",50000],["Standard Sharing 1 bulan",26000]]},
+ {name:"Melolo",cat:"Streaming",domain:"melolo.com",packages:[["Sharing 1 bulan",16000]]},
+ {name:"Netflix",cat:"Streaming",domain:"netflix.com",desc:"Harga tidak menggunakan tambahan markup. Tipe akun ditampilkan sesuai daftar harga; detail pembagian profil dan perangkat perlu dikonfirmasi kepada admin sebelum pembayaran.",packages:[
+  ["Premium 1 bulan — 1P1U",37000],["Premium 1 bulan — 1P2U",25000],["Premium 1 bulan — Semiprivate",45000],
+  ["Standard 1 bulan — 1P1U",30000],["Standard 1 bulan — Semiprivate",35000],
+  ["Daily — 1H1U",8000],["Daily — 3H1U",15000],["Daily — 7H1U",17500],["Daily — 1H2U",10000],["Daily — 3H2U",15500],["Daily — 7H2U",20500]
+ ]},
+ {name:"Prime Video",cat:"Streaming",domain:"primevideo.com",packages:[["Sharing 1 bulan",13000],["Sharing 6 bulan",33000],["Private 1 bulan",19000],["Private 6 bulan",60000]]},
+ {name:"Vidio",cat:"Streaming",domain:"vidio.com",packages:[["Sharing 1 bulan — Mobile",25000],["Sharing 1 bulan — All Device",31000],["Private 1 bulan — Mobile",37000],["Private 1 bulan — All Device",53000],["Private 1 tahun — TV Only",25000]]},
+ {name:"Vision+",cat:"Streaming",domain:"visionplus.id",desc:"Paket private termasuk beIN sesuai daftar paket.",packages:[["Private 1 bulan — termasuk beIN",33000]]},
+ {name:"Viu",cat:"Streaming",domain:"viu.com",desc:"Harga tidak menggunakan tambahan markup. Paket private anti limit sesuai daftar harga.",packages:[["1 bulan — Private anti limit",6000],["3 bulan — Private anti limit",10000],["Lifetime — Private anti limit",15000]]},
+ {name:"Spotify",cat:"Music",domain:"spotify.com",desc:"Pilih paket dengan teliti. Paket Indplan memiliki dua pilihan harga yang dibedakan berdasarkan garansi.",packages:[
+  ["Famplan 1 bulan",27000,"Garansi tersedia"],["Indplan 1 bulan",15000,"Tanpa garansi"],["Indplan 1 bulan",27000,"Dengan garansi"],["Indplan 3 bulan",23000,"Tanpa garansi"],["Indplan 3 bulan",47000,"Dengan garansi"]
+ ]},
+ {name:"Duolingo",cat:"Education",domain:"duolingo.com",packages:[["Email pribadi 1 bulan",15000],["Akun seller 1 bulan",11000]]},
+ {name:"YouTube Premium",cat:"YouTube",domain:"youtube.com",packages:[["Famplan 1 bulan",13000],["Indplan 1 bulan",20000],["Famhead 1 bulan",20000]]}
+];
+
+const money=n=>"Rp"+Number(n).toLocaleString("id-ID");
+let activeCategory="Semua", selectedProduct=null, cart=[];
+const initials=n=>n.split(/[\s+]/).map(x=>x[0]).join("").slice(0,2).toUpperCase();
+function logoHTML(p){
+ const knownLogos={
+  "Alight Motion":"https://play-lh.googleusercontent.com/LRjRXaVEtoeHyiFcnMLCHs1ZJV8Q4q70PggflRDAfgOkulzFTbJg65y0drg6Yapo22Xoos_XCbyh7EgycBhQ=w240-h480",
+  "Lightroom":"https://www.adobe.com/cc-shared/assets/img/product-icons/svg/lightroom.svg"
+ };
+ const url=knownLogos[p.name]||("https://www.google.com/s2/favicons?domain="+encodeURIComponent(p.domain)+"&sz=128");
+ return `<div class="applogo"><img src="${url}" alt="Logo ${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="fallback" style="display:none">${initials(p.name)}</span></div>`;
+}
+function render(){
+ const q=document.getElementById("search").value.toLowerCase().trim();
+ const list=products.filter(p=>(activeCategory==="Semua"||p.cat===activeCategory)&&p.name.toLowerCase().includes(q));
+ document.getElementById("resultcount").textContent=`Menampilkan ${list.length} dari ${products.length} aplikasi dengan daftar harga`;
+ document.getElementById("productgrid").innerHTML=list.map(p=>{
+  const min=Math.min(...p.packages.map(x=>x[1]));
+  return `<article class="product"><div class="producttop">${logoHTML(p)}<div><h3>${p.name}</h3><div class="categorytag">${p.cat}</div></div></div><div class="productprice">Mulai ${money(min)}</div><div class="productmeta">${p.packages.length} pilihan paket • Harga tercantum</div><div class="cardbottom"><span class="packagecount">Lihat detail paket</span><button class="detailbtn" onclick="openProduct('${p.name.replace(/'/g,"\\'")}')">Lihat paket ↗</button></div></article>`;
+ }).join("")||"<p style='color:#9a8791;font-size:12px'>Aplikasi tidak ditemukan.</p>";
+}
+function packageMeaning(p, x){
+ const label=x[0].toLowerCase();
+ const notes=[];
+ if(p.name==="Netflix"){
+  if(label.includes("1p1u")) notes.push("1P1U artinya 1 profil untuk 1 pengguna. Kamu mendapat satu profil Netflix yang dipakai sendiri oleh satu orang.");
+  if(label.includes("1p2u")) notes.push("1P2U artinya 1 profil digunakan oleh 2 pengguna. Jadi akses pada profil yang sama dipakai bergantian atau bersama oleh dua orang, bukan dua profil terpisah.");
+  if(label.includes("1u2p")) notes.push("1U2P artinya 1 pengguna mendapat 2 profil. Satu orang dapat memakai dua profil berbeda dalam akun yang sama.");
+  if(label.includes("semiprivate")) notes.push("Semiprivate berarti akun tidak sepenuhnya pribadi. Kamu mendapat pembagian akses/profil, tetapi akun induknya masih digunakan bersama pengguna lain.");
+  if(label.includes("1h1u")) notes.push("1H1U artinya akses 1 hari untuk 1 pengguna.");
+  if(label.includes("3h1u")) notes.push("3H1U artinya akses 3 hari untuk 1 pengguna.");
+  if(label.includes("7h1u")) notes.push("7H1U artinya akses 7 hari untuk 1 pengguna.");
+  if(label.includes("1h2u")) notes.push("1H2U artinya akses 1 hari untuk 2 pengguna.");
+  if(label.includes("3h2u")) notes.push("3H2U artinya akses 3 hari untuk 2 pengguna.");
+  if(label.includes("7h2u")) notes.push("7H2U artinya akses 7 hari untuk 2 pengguna.");
+  if(label.includes("premium")) notes.push("Premium adalah tingkat paket Netflix dengan kualitas dan fitur lebih tinggi dibanding paket Standard.");
+  if(label.includes("standard")) notes.push("Standard adalah tingkat paket Netflix standar. Kualitas dan jumlah perangkat mengikuti ketentuan paket yang berlaku.");
+  notes.push("Singkatan: P = profil, U = pengguna, H = hari. Jumlah profil tidak selalu sama dengan jumlah perangkat yang bisa menonton bersamaan.");
+ }
+ if(label.includes("sharing")) notes.push("Sharing berarti akses dipakai bersama dengan pelanggan lain. Paket ini bukan akun eksklusif satu orang; ikuti batas pengguna dan perangkat yang tertulis.");
+ if(label.includes("private")) notes.push("Private berarti akses disediakan khusus untuk satu pelanggan sesuai paket. Ini berbeda dari sharing yang digunakan bersama pelanggan lain.");
+ if(label.includes("semiprivate") && p.name!=="Netflix") notes.push("Semiprivate berarti akses lebih terbatas daripada sharing biasa, tetapi akun induk masih dapat digunakan bersama.");
+ if(label.includes("famplan")) notes.push("Famplan adalah paket keluarga. Pembeli masuk sebagai salah satu anggota dalam grup keluarga; bukan berarti menjadi pemilik atau pengelola grup.");
+ if(label.includes("indplan")) notes.push("Indplan adalah paket individual. Akses ditujukan untuk satu pengguna sesuai ketentuan paket.");
+ if(label.includes("famhead")) notes.push("Famhead adalah posisi kepala keluarga/pengelola grup Family. Peran ini berbeda dari anggota biasa yang hanya bergabung ke grup.");
+ if(label.includes("2u")) notes.push("2U berarti dua pengguna. Angka ini menunjukkan jumlah pengguna yang diperbolehkan dalam paket, bukan durasi.");
+ if(label.includes("6u")) notes.push("6U berarti paket dengan alokasi hingga enam pengguna sesuai pembagian akses dari penjual.");
+ if(label.includes("invite")) notes.push("Invite berarti akses diberikan melalui undangan ke email atau akun pembeli. Setelah undangan diterima, akses aktif pada akun yang diundang.");
+ if(label.includes("owner")) notes.push("Owner berarti akun atau akses dengan peran pemilik. Peran ini biasanya memiliki kendali lebih besar daripada member.");
+ if(label.includes("admin")) notes.push("Admin berarti akses dengan peran pengelola yang memiliki fungsi pengaturan tertentu.");
+ if(label.includes("member")) notes.push("Member berarti anggota biasa yang menggunakan akses, bukan pemilik atau pengelola grup.");
+ if(label.includes("renew")) notes.push("Renew berarti perpanjangan masa aktif pada akun atau paket yang sudah digunakan sebelumnya.");
+ if(label.includes("edu")) notes.push("Edu adalah paket dengan skema pendidikan/edukasi sesuai penawaran produk.");
+ if(label.includes("lifetime")) notes.push("Lifetime berarti masa akses ditawarkan tanpa batas waktu bulanan atau tahunan. Tetap berlaku selama layanan dan akun yang menjadi dasar paket masih tersedia.");
+ if(label.includes("daily")) notes.push("Daily berarti paket harian. Lama akses mengikuti jumlah hari yang tercantum pada nama paket.");
+ if(label.includes("ios only")) notes.push("Hanya dapat digunakan pada perangkat Apple seperti iPhone atau iPad; tidak untuk Android.");
+ if(label.includes("tv only")) notes.push("Paket ini khusus untuk penggunaan melalui TV.");
+ if(label.includes("mobile")) notes.push("Paket Mobile ditujukan untuk penggunaan melalui ponsel.");
+ if(label.includes("all device")) notes.push("All Device berarti dapat digunakan pada jenis perangkat yang didukung layanan, misalnya ponsel, tablet, atau TV. Bukan berarti semua perangkat bisa aktif bersamaan tanpa batas.");
+ if(label.includes("std")) notes.push("STD adalah singkatan Standard, yaitu pilihan paket standar.");
+ if(label.includes("premium")) notes.push("Premium adalah pilihan tingkat layanan premium dengan fitur sesuai ketentuan aplikasinya.");
+ if(label.includes("personal account")) notes.push("Personal account atau ACC buyer berarti menggunakan akun milik pembeli sendiri. Pembeli menyiapkan akun/email pribadi untuk proses aktivasi.");
+ if(label.includes("acc buyer")) notes.push("ACC buyer berarti account milik buyer/pembeli. Akun berasal dari pelanggan sendiri, bukan diberikan oleh seller.");
+ if(label.includes("akun dari seller")||label.includes("akun seller")) notes.push("ACC seller berarti akun disediakan oleh penjual. Pembeli akan menerima akun dari seller untuk digunakan sesuai petunjuk aktivasi.");
+ if(label.includes("email pribadi")) notes.push("Gunakan email milik sendiri. Email tersebut menjadi akun yang dipakai untuk proses aktivasi.");
+ if(label.includes("pre-order")) notes.push("Pre-order berarti pesanan dikumpulkan terlebih dahulu. Paket diproses setelah kuota minimal 8 orang terpenuhi.");
+ if(p.name==="Canva") notes.push("Harga sudah termasuk tambahan fitur Designer Rp500. Tidak ada biaya Designer tambahan saat checkout.");
+ if(p.name==="Remini Web") notes.push("Login dilakukan melalui situs Remini, bukan aplikasi. Dapat dibuka melalui browser di iPhone maupun Android.");
+ if(p.name==="GetContact") notes.push("Aktivasi memerlukan kode OTP, yaitu kode verifikasi sekali pakai yang dikirim ke nomor atau akun terkait.");
+ if(p.name==="Disney+" && label.includes("6u")) notes.push("Paket ini menggunakan pembagian enam pengguna sesuai penawaran. Add-on dua perangkat menambah kapasitas perangkat sesuai ketentuan paket.");
+ if(p.name==="ChatGPT" && label.includes("go")) notes.push("Paket Go memiliki batas penggunaan tertentu. Cocok untuk pemakaian yang lebih ringan dibanding paket Plus.");
+ if(p.name==="Vision+") notes.push("Paket ini sudah termasuk akses beIN sesuai daftar paket Angela Store.");
+ if(p.name==="Viu") notes.push("Private anti limit berarti akses pribadi dengan ketentuan batas penggunaan yang ditawarkan pada paket ini.");
+ if(p.name==="Spotify" && label.includes("indplan")) notes.push("Indplan adalah paket individual Spotify. Pilihan harga dibedakan berdasarkan ada atau tidaknya garansi.");
+ if(p.name==="Spotify" && label.includes("famplan")) notes.push("Famplan adalah paket keluarga Spotify, dengan akses melalui grup keluarga sesuai ketentuan layanan.");
+ if(p.name==="Alight Motion" && label.includes("personal account")) notes.push("Paket ini diaktifkan pada akun pribadi milik pembeli.");
+ if(p.name==="Alight Motion" && label.includes("akun dari seller")) notes.push("Akun Alight Motion disediakan oleh seller, sehingga pembeli tidak menggunakan akun pribadinya.");
+ if(!notes.length) notes.push("Paket ini mengikuti jenis akses dan durasi yang tertulis. Harga dan status garansi ditampilkan pada pilihan paket.");
+ return notes.join(" ");
+}
+function warrantyInfo(x){
+ if(x[2]){
+  const val=x[2].toLowerCase();
+  if(val.includes("tanpa garansi")) return {text:"✕ Tanpa garansi",cls:"no"};
+  return {text:"✓ "+x[2],cls:""};
+ }
+ return {text:"ⓘ Garansi belum dicantumkan — konfirmasi admin",cls:"unknown"};
+}
+function openProduct(name){
+ selectedProduct=products.find(p=>p.name===name);
+ document.getElementById("modalname").textContent=selectedProduct.name;
+ document.getElementById("modalintro").textContent=selectedProduct.desc||"Pilih paket sesuai kebutuhanmu. Setiap pilihan dilengkapi keterangan penggunaan dan status garansi agar kamu tahu apa yang dipesan.";
+ document.getElementById("optionlist").innerHTML=selectedProduct.packages.map((x,i)=>{
+  const w=warrantyInfo(x);
+  return `<label class="option"><input type="radio" name="package" value="${i}" ${i===0?"checked":""}><span class="optiontext"><b>${x[0]}</b><span class="warrantyline ${w.cls}">${w.text}</span><span class="optionmeaning">${packageMeaning(selectedProduct,x)}</span></span><span class="optionprice">${money(x[1])}</span></label>`;
+ }).join("");
+ document.getElementById("addonarea").innerHTML=selectedProduct.addon?`<label class="addon"><input type="checkbox" id="addoncheck"> ${selectedProduct.addon.label} (+${money(selectedProduct.addon.price)}) — opsional</label>`:"";
+ document.getElementById("qty").value=1;
+ document.getElementById("modalback").classList.add("show");
+}
+function closeModal(){document.getElementById("modalback").classList.remove("show")}
+function addSelected(){
+ const chosen=document.querySelector('input[name="package"]:checked');
+ if(!chosen)return;
+ const pkg=selectedProduct.packages[Number(chosen.value)];
+ const qty=Math.max(1,Math.min(10,Number(document.getElementById("qty").value)||1));
+ const addon=!!(selectedProduct.addon&&document.getElementById("addoncheck")?.checked);
+ const unit=pkg[1]+(addon?selectedProduct.addon.price:0);
+ cart.push({name:selectedProduct.name,package:pkg[0],warranty:pkg[2]||"",unit,qty,addon:addon?selectedProduct.addon.label:""});
+ updateCart();closeModal();showToast("Paket ditambahkan ke keranjang ♡");
+}
+let pageScrollPositions={shop:0,cartPage:0,checkoutPage:0};
+function showPage(id,restoreScroll=false){
+ document.querySelectorAll(".pageview").forEach(p=>p.classList.remove("active"));
+ if(id==="shop"){
+  document.body.classList.remove("subpage-open");
+  if(restoreScroll)window.scrollTo({top:pageScrollPositions.shop||0,behavior:"smooth"});
+ }else{
+  document.getElementById(id).classList.add("active");
+  document.body.classList.add("subpage-open");
+  window.scrollTo({top:0,behavior:"smooth"});
+ }
+}
+function openPage(id){
+ const current=document.body.classList.contains("subpage-open")?
+  (document.getElementById("checkoutPage").classList.contains("active")?"checkoutPage":"cartPage"):"shop";
+ pageScrollPositions[current]=window.scrollY||window.pageYOffset||0;
+ history.pushState({angelaStorePage:id},"","#"+id);
+ showPage(id);
+}
+function goBackInStore(){
+ if(history.state&&history.state.angelaStorePage){
+  history.back();
+ }else{
+  showPage("shop",true);
+ }
+}
+function returnToShop(){goBackInStore()}
+function openCartPage(){
+ updateCart();
+ openPage("cartPage");
+}
+function goCheckout(){
+ if(!cart.length){showToast("Keranjang masih kosong");return}
+ renderCheckoutSummary();
+ openPage("checkoutPage");
+}
+window.addEventListener("popstate",function(event){
+ const id=event.state&&event.state.angelaStorePage;
+ if(id==="gamesPage"){showSubpage("gamesPage");backToGameMenu();return}
+ document.getElementById("gamesPage")?.classList.remove("active");
+ document.body.classList.remove("subpage-open");
+ if(id==="cartPage"||id==="checkoutPage"){
+  if(id==="checkoutPage")renderCheckoutSummary();
+  showPage(id);
+ }else{showPage("shop",true)}
+});
+history.replaceState({angelaStorePage:"shop"},"",location.pathname+location.search);
+function updateCart(){
+ const count=cart.reduce((a,x)=>a+x.qty,0);
+ document.getElementById("cartcount").textContent=count;
+ document.getElementById("cartPageCount").textContent=count+" item";
+ const el=document.getElementById("cartitems");
+ if(!cart.length){
+  el.className="cartempty";
+  el.innerHTML='Keranjangmu masih kosong ♡<br><button class="detailbtn" style="margin-top:12px" onclick="goBackInStore()">Kembali memilih aplikasi</button>';
+ }else{
+  el.className="";
+  el.innerHTML=cart.map((x,i)=>`<div class="cartrow"><div><strong>${x.name} — ${x.package}</strong><small>${x.warranty||"Garansi belum dicantumkan — konfirmasi admin"}${x.addon?"<br>Tambahan: "+x.addon:""}<br>Harga satuan: ${money(x.unit)} · Jumlah: ${x.qty}</small></div><b>${money(x.unit*x.qty)}</b><button class="remove" onclick="removeCart(${i})">Hapus</button></div>`).join("");
+ }
+ const total=cart.reduce((a,x)=>a+x.unit*x.qty,0);
+ document.getElementById("total").innerHTML=`Total: ${money(total)}<small>Harga sementara. Stok dan total akhir akan dikonfirmasi admin sebelum pembayaran.</small>`;
+ document.getElementById("checkout").disabled=!cart.length;
+}
+function removeCart(i){cart.splice(i,1);updateCart();if(document.getElementById("checkoutPage").classList.contains("active")&&cart.length)renderCheckoutSummary();else if(!cart.length&&document.getElementById("checkoutPage").classList.contains("active"))openCartPage()}
+function renderCheckoutSummary(){
+ const el=document.getElementById("checkoutSummary");
+ el.innerHTML=cart.map((x,i)=>`<div class="checkoutSummaryRow"><div><strong>${String(i+1).padStart(2,"0")}. ${x.name} — ${x.package}</strong><small>Garansi: ${x.warranty||"Belum dicantumkan — mohon konfirmasi admin"}<br>Harga satuan: ${money(x.unit)} · Jumlah: ${x.qty}${x.addon?"<br>Tambahan: "+x.addon:""}</small></div><b>${money(x.unit*x.qty)}</b></div>`).join("")+
+ `<div class="checkoutGrand"><span>💗 TOTAL SEMENTARA</span><strong>${money(cart.reduce((a,x)=>a+x.unit*x.qty,0))}</strong></div>`;
+}
+function sendWhatsAppOrder(){
+ if(!cart.length)return;
+ const buyer=document.getElementById("customerName").value.trim();
+ const total=cart.reduce((a,x)=>a+x.unit*x.qty,0);
+ const lines=[
+  "*ANGELA STORE*",
+  "*FORMULIR PEMESANAN*",
+  "",
+  "Halo Admin Angela Store, saya ingin melakukan pemesanan dengan rincian berikut.",
+  "",
+  "────────────────────",
+  "*DETAIL PESANAN*",
+  ""
+ ];
+ cart.forEach((x,i)=>{
+  lines.push(
+   `*${String(i+1).padStart(2,"0")}. ${x.name}*`,
+   `Paket       : ${x.package}`,
+   `Garansi     : ${x.warranty||"Belum tercantum pada daftar harga"}`,
+   `Harga       : ${money(x.unit)}`,
+   `Jumlah      : ${x.qty}`,
+   `Subtotal    : ${money(x.unit*x.qty)}`
+  );
+  if(x.addon)lines.push(`Tambahan    : ${x.addon}`);
+  lines.push("");
+ });
+ lines.push(
+  "────────────────────",
+  `*TOTAL PESANAN: ${money(total)}*`,
+  buyer?`Nama pemesan: ${buyer}`:"",
+  "",
+  "*MOHON KONFIRMASI ADMIN*",
+  "1. Ketersediaan paket yang dipilih.",
+  "2. Cara aktivasi dan ketentuan penggunaan.",
+  "3. Ketentuan garansi sesuai paket.",
+  "4. Total pembayaran dan metode pembayaran.",
+  "",
+  "Saya akan menunggu konfirmasi sebelum melakukan pembayaran.",
+  "",
+  "Terima kasih.",
+  "Angela Store | Premium App Boutique"
+ );
+ const message=lines.join("\n").replace(/\n{3,}/g,"\n\n");
+ const url="https://wa.me/"+WA_ADMIN+"?text="+encodeURIComponent(message);
+ window.location.href=url;
+}
+function contactAdmin(){
+ const msg="Halo Admin Angela Store, saya ingin bertanya mengenai produk dan pilihan paket. Mohon bantu informasinya. Terima kasih.";
+ window.open("https://wa.me/"+WA_ADMIN+"?text="+encodeURIComponent(msg),"_blank");
+}
+
+let ambienceContext=null,ambienceNodes=[],ambienceOn=false,ambienceTimer=null;
+function toggleAmbience(){
+ const button=document.getElementById("soundToggle");
+ if(ambienceOn){stopAmbience();button.innerHTML='♫ <span>Suasana: Mati</span>';button.setAttribute("aria-pressed","false");button.setAttribute("aria-label","Nyalakan musik latar");return}
+ try{
+  const AC=window.AudioContext||window.webkitAudioContext;
+  if(!AC){showToast("Audio tidak didukung browser ini");return}
+  ambienceContext=ambienceContext||new AC();
+  if(ambienceContext.state==="suspended")ambienceContext.resume();
+  const master=ambienceContext.createGain();master.gain.value=.055;master.connect(ambienceContext.destination);
+  const filter=ambienceContext.createBiquadFilter();filter.type="lowpass";filter.frequency.value=950;filter.connect(master);
+  const now=ambienceContext.currentTime;
+  const padNotes=[196,246.94,293.66,369.99];
+  padNotes.forEach((freq,i)=>{
+   const osc=ambienceContext.createOscillator(),gain=ambienceContext.createGain();
+   osc.type="sine";osc.frequency.value=freq;
+   gain.gain.value=i===0?.24:.105;
+   osc.connect(gain);gain.connect(filter);osc.start();
+   ambienceNodes.push(osc,gain);
+  });
+  // A very soft, slow high note gives the background a calm, airy atmosphere.
+  const bell=ambienceContext.createOscillator(),bellGain=ambienceContext.createGain();
+  bell.type="sine";bell.frequency.value=587.33;bellGain.gain.value=0;
+  bell.connect(bellGain);bellGain.connect(master);bell.start();
+  ambienceNodes.push(bell,bellGain,master,filter);
+  let bellStep=0;
+  ambienceTimer=window.setInterval(()=>{
+   if(!ambienceContext||ambienceContext.state!=="running")return;
+   const t=ambienceContext.currentTime;
+   const notes=[587.33,659.25,783.99,659.25,523.25,587.33];
+   bell.frequency.setTargetAtTime(notes[bellStep%notes.length],t,.5);
+   bellGain.gain.cancelScheduledValues(t);
+   bellGain.gain.setValueAtTime(.0001,t);
+   bellGain.gain.linearRampToValueAtTime(.035,t+1.4);
+   bellGain.gain.setTargetAtTime(.0001,t+2.1,1.1);
+   bellStep++;
+  },5200);
+  ambienceOn=true;button.innerHTML='♫ <span>Suasana: Nyala</span>';button.setAttribute("aria-pressed","true");button.setAttribute("aria-label","Matikan musik latar");
+ }catch(err){showToast("Musik latar tidak dapat diputar di browser ini")}
+}
+function stopAmbience(){
+ ambienceOn=false;
+ if(ambienceTimer){clearInterval(ambienceTimer);ambienceTimer=null}
+ if(ambienceContext){
+  ambienceNodes.forEach(node=>{try{if(node.stop)node.stop()}catch(e){}try{if(node.disconnect)node.disconnect()}catch(e){}});
+  ambienceNodes=[];
+  ambienceContext.close().catch(()=>{});
+  ambienceContext=null;
+ }
+}
+
+function showToast(t){const el=document.getElementById("toast");el.textContent=t;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2200)}
+document.getElementById("storeAudio").addEventListener("play",()=>document.getElementById("musicDisc").classList.add("playing"));
+document.getElementById("storeAudio").addEventListener("pause",()=>document.getElementById("musicDisc").classList.remove("playing"));
+document.getElementById("search").addEventListener("input",render);
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeCategory=b.dataset.cat;render()}));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+render();updateCart();
+
+
+/* ===== MUSIC PLAYER: user-selected licensed audio + original vocal-style jingle ===== */
+let musicObjectURL=null, jingleOsc=[], jingleTimer=null, jingleUtterance=null;
+function openMusicPanel(){document.getElementById('musicPanel').classList.toggle('show')}
+function closeMusicPanel(){document.getElementById('musicPanel').classList.remove('show')}
+function loadMusicFile(e){const f=e.target.files&&e.target.files[0];if(!f)return;const a=document.getElementById('storeAudio');if(musicObjectURL)URL.revokeObjectURL(musicObjectURL);musicObjectURL=URL.createObjectURL(f);a.src=musicObjectURL;a.play().then(()=>{document.getElementById('musicDisc').classList.add('playing');document.getElementById('musicStatus').textContent='Memutar: '+f.name}).catch(()=>{document.getElementById('musicStatus').textContent='Tekan tombol play pada pemutar untuk mulai.'});a.onended=()=>document.getElementById('musicDisc').classList.remove('playing')}
+function playCherryJingle(){stopCherryJingle();const AC=window.AudioContext||window.webkitAudioContext;if(!AC){showToast('Audio tidak didukung browser');return}const ctx=new AC();const master=ctx.createGain();master.gain.value=.07;master.connect(ctx.destination);const notes=[261.63,329.63,392,349.23,329.63,293.66,261.63];let i=0;function beat(){if(i>=notes.length){clearInterval(jingleTimer);jingleTimer=null;return}const o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.frequency.value=notes[i];g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.28,ctx.currentTime+.04);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.38);o.connect(g);g.connect(master);o.start();o.stop(ctx.currentTime+.4);jingleOsc.push(o);i++}beat();jingleTimer=setInterval(beat,410);if('speechSynthesis'in window){const u=new SpeechSynthesisUtterance('Angela Store, pilihan digitalmu, mudah dan selalu seru. Angela Store, belanja nyaman untukmu.');u.lang='id-ID';u.rate=.83;u.pitch=1.35;u.volume=.85;jingleUtterance=u;setTimeout(()=>speechSynthesis.speak(u),450)}document.getElementById('musicDisc').classList.add('playing');document.getElementById('musicStatus').textContent='Memutar jingle orisinal Angela Store dengan vokal sintetis.';setTimeout(()=>{if(!jingleTimer)document.getElementById('musicDisc').classList.remove('playing')},4300)}
+function stopCherryJingle(){if(jingleTimer){clearInterval(jingleTimer);jingleTimer=null}if('speechSynthesis'in window)speechSynthesis.cancel();jingleOsc=[];document.getElementById('musicDisc').classList.remove('playing');document.getElementById('musicStatus').textContent='Jingle dihentikan.'}
+
+/* ===== SPA navigation for arcade: every game opens a dedicated screen ===== */
+let currentGame='',gameTimer=null,gameState={},snakeLoop=null;
+function showSubpage(id){document.body.classList.add('subpage-open');document.querySelectorAll('.subpage').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function openGames(){history.pushState({angelaStorePage:'gamesPage'},'', '#mini-games');showSubpage('gamesPage');backToGameMenu()}
+function leaveSubpage(){if(history.state&&history.state.angelaStorePage==='gamesPage')history.back();else{document.getElementById('gamesPage').classList.remove('active');document.body.classList.remove('subpage-open');history.replaceState({angelaStorePage:'shop'},'',location.pathname+location.search)}}
+function backToGameMenu(){stopGameTimers();document.getElementById('gameGrid').style.display='grid';document.getElementById('gameStage').classList.remove('active');currentGame='';}
+function startGame(id){stopGameTimers();currentGame=id;document.getElementById('gameGrid').style.display='none';document.getElementById('gameStage').classList.add('active');const meta={ttt:['Tic Tac Toe','Susun tiga simbol sejajar. Kamu bermain sebagai X, komputer sebagai O.'],block:['Block Blast','Pilih bentuk, lalu ketuk area papan untuk meletakkannya. Penuhi satu baris atau kolom untuk menghapusnya.'],memory:['Memory Match','Balik dua kartu setiap giliran. Cocokkan semua pasangan secepat mungkin.'],whack:['Cherry Pop','Ketuk cherry yang muncul. Kumpulkan skor sebanyak mungkin dalam 20 detik.'],snake:['Neon Snake','Makan buah untuk menambah panjang dan skor. Gunakan tombol arah atau keyboard.']}[id];document.getElementById('gameName').textContent=meta[0];document.getElementById('gameDesc').textContent=meta[1];document.getElementById('gameScore').textContent='SCORE 0';document.getElementById('gameExtra').textContent='';if(id==='ttt')initTTT();if(id==='block')initBlock();if(id==='memory')initMemory();if(id==='whack')initWhack();if(id==='snake')initSnake()}
+function restartCurrentGame(){if(currentGame)startGame(currentGame)}
+function stopGameTimers(){if(gameTimer){clearInterval(gameTimer);gameTimer=null}if(snakeLoop){clearInterval(snakeLoop);snakeLoop=null}}
+function setGameStatus(t){document.getElementById('gameStatus').textContent=t}
+function setScore(n){document.getElementById('gameScore').textContent='SCORE '+n}
+/* Tic tac toe */
+function initTTT(){gameState={cells:Array(9).fill(''),over:false};const b=document.getElementById('gameBoard');b.innerHTML='<div class="tttBoard">'+Array.from({length:9},(_,i)=>`<button class="tttCell" onclick="tttMove(${i})" id="ttt${i}"></button>`).join('')+'</div>';setGameStatus('Giliran kamu — X');}
+function tttWinner(a){for(const [x,y,z] of [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]])if(a[x]&&a[x]===a[y]&&a[y]===a[z])return a[x];return a.every(Boolean)?'draw':null}
+function tttMove(i){if(gameState.over||gameState.cells[i])return;gameState.cells[i]='X';document.getElementById('ttt'+i).textContent='✕';let w=tttWinner(gameState.cells);if(w)return tttEnd(w);setGameStatus('Komputer berpikir...');setTimeout(()=>{if(gameState.over)return;let empt=gameState.cells.map((v,i)=>v?null:i).filter(v=>v!==null);if(!empt.length)return;let pick=empt.find(i=>{let a=[...gameState.cells];a[i]='O';return tttWinner(a)==='O'});if(pick===undefined)pick=empt.find(i=>{let a=[...gameState.cells];a[i]='X';return tttWinner(a)==='X'});if(pick===undefined)pick=empt[Math.floor(Math.random()*empt.length)];gameState.cells[pick]='O';document.getElementById('ttt'+pick).textContent='○';w=tttWinner(gameState.cells);if(w)tttEnd(w);else setGameStatus('Giliran kamu — X')},420)}
+function tttEnd(w){gameState.over=true;setGameStatus(w==='X'?'🎉 Kamu menang!':w==='O'?'Komputer menang. Coba lagi!':'Seri! Permainan seimbang.');}
+/* Block Blast */
+const blockShapes=[[[0,0]],[[0,0],[0,1]],[[0,0],[1,0]],[[0,0],[0,1],[1,0]],[[0,0],[0,1],[0,2]],[[0,0],[1,0],[2,0]],[[0,0],[0,1],[1,0],[1,1]],[[0,0],[0,1],[0,2],[1,1]]];
+function initBlock(){gameState={board:Array.from({length:8},()=>Array(8).fill(0)),score:0,shape:0,shapes:[]};newBlockPieces();drawBlock();setGameStatus('Pilih bentuk balok, lalu ketuk papan.');}
+function newBlockPieces(){gameState.shapes=Array.from({length:3},()=>Math.floor(Math.random()*blockShapes.length));gameState.shape=0;drawPieces()}
+function drawPieces(){let el=document.getElementById('gameExtra');el.innerHTML='';document.getElementById('gameBoard').querySelector('.blockPieces')?.remove();let row=document.createElement('div');row.className='blockPieces';gameState.shapes.forEach((si,i)=>{let btn=document.createElement('button');btn.className='pieceChoice'+(i===gameState.shape?' selected':'');btn.disabled=si<0;btn.style.opacity=si<0?'.25':'1';btn.onclick=()=>{if(si<0)return;gameState.shape=i;drawPieces()};if(si>=0)blockShapes[si].forEach(()=>{let d=document.createElement('i');d.className='pieceDot';btn.appendChild(d)});else btn.textContent='✓';row.appendChild(btn)});document.getElementById('gameBoard').prepend(row)}
+function drawBlock(){const el=document.getElementById('gameBoard');el.querySelector('.blockBoard')?.remove();let b=document.createElement('div');b.className='blockBoard';for(let r=0;r<8;r++)for(let c=0;c<8;c++){let d=document.createElement('button');d.className='blockCell'+(gameState.board[r][c]?' filled':'');d.onclick=()=>placeBlock(r,c);b.appendChild(d)}el.appendChild(b);setScore(gameState.score);}
+function placeBlock(r,c){let sh=blockShapes[gameState.shapes[gameState.shape]],cells=sh.map(([y,x])=>[r+y,c+x]);if(cells.some(([y,x])=>y>=8||x>=8||gameState.board[y][x])){setGameStatus('Tidak muat di posisi itu. Coba tempat lain.');return}cells.forEach(([y,x])=>gameState.board[y][x]=1);let clearRows=[];for(let y=0;y<8;y++)if(gameState.board[y].every(Boolean))clearRows.push(y);let clearCols=[];for(let x=0;x<8;x++)if(gameState.board.every(row=>row[x]))clearCols.push(x);clearRows.forEach(y=>gameState.board[y].fill(0));clearCols.forEach(x=>gameState.board.forEach(row=>row[x]=0));gameState.score+=cells.length+10*(clearRows.length+clearCols.length);setScore(gameState.score);gameState.shapes[gameState.shape]=-1;if(gameState.shapes.every(x=>x<0))newBlockPieces();else{let next=gameState.shapes.findIndex(x=>x>=0);if(next<0)next=0;gameState.shape=next;drawPieces()}drawBlock();setGameStatus('Bagus! Terus susun balok.');}
+/* Memory */
+function initMemory(){let icons=['🍒','👑','💎','🎀','🍓','🌹','⭐','🖤'];gameState={deck:[...icons,...icons].sort(()=>Math.random()-.5),open:[],matched:[],moves:0,lock:false};drawMemory();setGameStatus('Temukan 8 pasangan.');document.getElementById('gameExtra').textContent='LANGKAH 0'}
+function drawMemory(){document.getElementById('gameBoard').innerHTML='<div class="memoryBoard">'+gameState.deck.map((v,i)=>`<button class="memoryCell ${gameState.open.includes(i)||gameState.matched.includes(i)?'open':''}" onclick="memoryFlip(${i})">${gameState.open.includes(i)||gameState.matched.includes(i)?v:'?'}</button>`).join('')+'</div>'}
+function memoryFlip(i){if(gameState.lock||gameState.open.includes(i)||gameState.matched.includes(i))return;gameState.open.push(i);drawMemory();if(gameState.open.length===2){gameState.moves++;document.getElementById('gameExtra').textContent='LANGKAH '+gameState.moves;let [a,b]=gameState.open;if(gameState.deck[a]===gameState.deck[b]){gameState.matched.push(a,b);gameState.open=[];drawMemory();setScore(gameState.matched.length/2*10);if(gameState.matched.length===16)setGameStatus('🏆 Semua pasangan ditemukan!');}else{gameState.lock=true;setTimeout(()=>{gameState.open=[];gameState.lock=false;drawMemory()},750)}}}
+/* Cherry pop */
+function initWhack(){gameState={score:0,active:Math.floor(Math.random()*9),time:20};document.getElementById('gameBoard').innerHTML='<div class="whackBoard">'+Array.from({length:9},(_,i)=>`<button class="whackCell" id="whack${i}" onclick="whackTap(${i})">${i===gameState.active?'🍒':'·'}</button>`).join('')+'</div>';setScore(0);setGameStatus('Waktu: 20 detik');gameTimer=setInterval(()=>{gameState.time--;setGameStatus('Waktu: '+gameState.time+' detik');if(gameState.time<=0){stopGameTimers();setGameStatus('Waktu habis! Skormu '+gameState.score+'. Tekan mulai ulang.')}},1000)}
+function whackTap(i){if(gameState.time<=0||i!==gameState.active)return;gameState.score+=1;setScore(gameState.score);gameState.active=Math.floor(Math.random()*9);for(let n=0;n<9;n++)document.getElementById('whack'+n).textContent=n===gameState.active?'🍒':'·'}
+/* Snake */
+function initSnake(){gameState={snake:[[7,7],[7,6],[7,5]],dir:[0,1],food:[3,4],score:0,over:false};document.getElementById('gameBoard').innerHTML='<canvas id="snakeCanvas" width="320" height="320"></canvas><div class="snakeControls"><span></span><button onclick="snakeDir(-1,0)">▲</button><span></span><button onclick="snakeDir(0,-1)">◀</button><button onclick="snakeDir(1,0)">▼</button><button onclick="snakeDir(0,1)">▶</button></div>';document.onkeydown=e=>{if(!currentGame||currentGame!=='snake')return;if(e.key==='ArrowUp')snakeDir(-1,0);if(e.key==='ArrowDown')snakeDir(1,0);if(e.key==='ArrowLeft')snakeDir(0,-1);if(e.key==='ArrowRight')snakeDir(0,1)};drawSnake();setGameStatus('Gunakan tombol arah.');snakeLoop=setInterval(snakeStep,220)}
+function snakeDir(y,x){if(gameState.dir&&y===-gameState.dir[0]&&x===-gameState.dir[1])return;gameState.dir=[y,x]}
+function drawSnake(){let c=document.getElementById('snakeCanvas');if(!c)return;let ctx=c.getContext('2d'),size=20;ctx.clearRect(0,0,320,320);ctx.strokeStyle='#321023';for(let i=0;i<=16;i++){ctx.beginPath();ctx.moveTo(i*20,0);ctx.lineTo(i*20,320);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*20);ctx.lineTo(320,i*20);ctx.stroke()}ctx.fillStyle='#ff739b';ctx.fillRect(gameState.food[1]*20+3,gameState.food[0]*20+3,14,14);gameState.snake.forEach(([y,x],i)=>{ctx.fillStyle=i?'#a91549':'#ffb0c4';ctx.fillRect(x*20+2,y*20+2,16,16)})}
+function snakeStep(){if(gameState.over)return;let [dy,dx]=gameState.dir,[y,x]=gameState.snake[0],head=[y+dy,x+dx];if(head[0]<0||head[0]>=16||head[1]<0||head[1]>=16||gameState.snake.some(([a,b])=>a===head[0]&&b===head[1])){gameState.over=true;stopGameTimers();setGameStatus('Game over! Skor '+gameState.score+'. Mulai ulang untuk bermain lagi.');return}gameState.snake.unshift(head);if(head[0]===gameState.food[0]&&head[1]===gameState.food[1]){gameState.score+=10;setScore(gameState.score);gameState.food=[Math.floor(Math.random()*16),Math.floor(Math.random()*16)]}else gameState.snake.pop();drawSnake()}
+
+/* ===== ANGELA ASSISTANT: deeper manual conversation engine ===== */
+let botContext={product:null,topic:null,depth:0,lastAnswer:'',packageIndex:null,compare:null,needClarify:false};
+function toggleChat(){document.getElementById('chatPanel').classList.toggle('show');if(document.getElementById('chatPanel').classList.contains('show'))setTimeout(()=>document.getElementById('chatInput').focus(),100)}
+function addChat(text,who){let el=document.createElement('div');el.className='chatBubble '+who;el.textContent=text;let box=document.getElementById('chatMessages');box.appendChild(el);box.scrollTop=box.scrollHeight}
+function askQuick(t){document.getElementById('chatInput').value=t;sendChat()}
+function normalizeText(t){return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim()}
+function findProductInQuestion(q){
+ let exact=products.find(p=>q.includes(normalizeText(p.name)));
+ if(exact)return exact;
+ let aliases={'youtube premium':['yt premium','youtube','yt'],'prime video':['prime','amazon prime'],'disney+':['disney plus','disney'],'remini web':['remini'],'alight motion':['alight','am'],'getcontact':['get contact'],'chatgpt':['chat gpt','gpt'],'spotify':['spoti'],'netflix':['nete'],'viu':['viu'],'iqiyi':['i qiyi','iqi'],'vision+':['vision plus']};
+ for(const p of products){let a=aliases[normalizeText(p.name)]||[];if(a.some(x=>q.includes(x)))return p;}
+ return null;
+}
+function getProductPackageText(p){return (p.packages||[]).map((x,i)=>`${i+1}. ${x[0]} — ${money(x[1])}${x[2]?' — '+x[2]:' — keterangan garansi belum dicantumkan'}`).join('\n')}
+function getProductSummary(p){return `${p.name}\n${p.desc||'Keterangan singkat produk belum dicantumkan pada katalog.'}\n\nPilihan paket yang tercantum:\n${getProductPackageText(p)}\n\nMau tahu paket termurah, termahal, perbedaan paket, cara login, atau garansinya?`}
+function packageDetail(p,x){let meaning='';try{meaning=typeof packageMeaning==='function'?packageMeaning(p,x):''}catch(e){}return `${p.name} — ${x[0]}\nHarga: ${money(x[1])}\nGaransi: ${x[2]||'Belum dicantumkan pada daftar harga.'}${meaning?'\n\nPenjelasan: '+meaning:''}`}
+function answerProductFollowup(q,p){
+ const pk=p.packages||[]; if(!pk.length)return 'Pilihan paket produk ini belum tersedia di katalog. Silakan tanyakan kepada admin.';
+ const idx=botContext.packageIndex;
+ if(/(yang tadi|paket itu|paket tersebut|pilihan itu|yang itu|harganya|garansinya|login nya|loginnya|masa aktifnya)/.test(q)&&idx!==null&&pk[idx]){
+  let x=pk[idx];
+  if(/harga|berapa/.test(q))return `${x[0]} untuk ${p.name} harganya ${money(x[1])}.`;
+  if(/garansi|jaminan|klaim/.test(q))return `Untuk ${p.name} — ${x[0]}, keterangan garansinya: ${x[2]||'belum dicantumkan pada daftar paket'}. Jangan menganggap ada garansi jika belum tertulis; konfirmasi admin sebelum membayar.`;
+  if(/login|masuk|kode|password|link/.test(q))return `Cara login ${p.name} — ${x[0]} mengikuti instruksi aktivasi dari admin. Pada daftar paket belum ada metode login rinci yang bisa kupastikan, jadi aku tidak akan menebak. Mau aku bantu jelaskan apa yang perlu ditanyakan ke admin?`;
+  if(/masa aktif|durasi|berapa lama/.test(q))return `Durasi yang tertulis untuk ${p.name} — ${x[0]}. Masa aktif pastinya mengikuti waktu aktivasi dan ketentuan yang disampaikan admin.`;
+ }
+ if(/termurah|paling murah|harga terendah|murahnya|yang murah/.test(q)){let m=Math.min(...pk.map(x=>x[1]));let found=pk.map((x,i)=>({x,i})).filter(o=>o.x[1]===m);botContext.packageIndex=found[0].i;return `Paket termurah ${p.name}:\n${found.map(o=>`• ${o.x[0]} — ${money(o.x[1])}${o.x[2]?' ('+o.x[2]+')':''}`).join('\n')}\n\nHarga termurah belum tentu paling cocok. Perhatikan durasi, jenis akses, dan garansi. Mau aku bandingkan dengan paket yang lebih mahal?`}
+ if(/termahal|paling mahal|harga tertinggi/.test(q)){let m=Math.max(...pk.map(x=>x[1]));let i=pk.findIndex(x=>x[1]===m);botContext.packageIndex=i;return `Paket dengan harga tertinggi ${p.name}:\n${pk.filter(x=>x[1]===m).map(x=>`• ${x[0]} — ${money(x[1])}`).join('\n')}\n\nHarga lebih tinggi tidak otomatis paling cocok. Mau tahu apa perbedaannya dengan paket termurah?`}
+ if(/berapa paket|ada berapa|semua paket|daftar paket|pilihan paket|paket apa saja|list paket/.test(q))return `Saat ini ada ${pk.length} pilihan paket ${p.name}:\n${getProductPackageText(p)}\n\nKamu bisa tanya “jelaskan paket nomor 1”, “mana yang ada garansi?”, atau “apa beda paket pertama dan kedua?”.`;
+ if(/nomor [0-9]+|paket ke [0-9]+|pilihan [0-9]+|paket [0-9]+/.test(q)){let m=q.match(/(?:nomor|ke|pilihan|paket) ([0-9]+)/);let i=m?Number(m[1])-1:-1;if(i>=0&&pk[i]){botContext.packageIndex=i;return packageDetail(p,pk[i]);}}
+ if(/banding|dibanding|perbandingan|beda|perbedaan|vs|versus/.test(q)){
+  let nums=[...q.matchAll(/(?:nomor|paket|pilihan|ke)\s*(\d+)/g)].map(m=>Number(m[1])-1).filter(i=>pk[i]);
+  if(nums.length>=2){let [a,b]=nums;botContext.compare=[a,b];return `Perbandingan ${p.name}:\nA. ${packageDetail(p,pk[a])}\n\nB. ${packageDetail(p,pk[b])}\n\nPerbedaan utamanya ada pada nama paket, harga, dan keterangan garansi yang tercantum. Mau aku bantu pilih berdasarkan budget atau kebutuhan akses?`}
+  return `Bisa! ${p.name} memiliki beberapa pilihan. Sebutkan dua nama paket atau nomor paket yang ingin dibandingkan. Aku akan membandingkan harga, durasi yang tertulis, dan garansinya tanpa mengarang detail.`;
+ }
+ if(/arti|maksud|jelaskan|detail|lebih lanjut|lebih detail|lebih dalam|apa itu|contoh/.test(q)){
+  if(idx!==null&&pk[idx])return packageDetail(p,pk[idx]);
+  return `Aku bisa jelaskan satu per satu paket ${p.name}.\n\n${pk.map((x,i)=>`${i+1}. ${x[0]} — ${money(x[1])}${x[2]?' | '+x[2]:''}`).join('\n')}\n\nSebutkan nama atau nomor paket agar penjelasannya tepat. Informasi yang tidak tercantum akan aku tandai sebagai perlu konfirmasi admin.`;
+ }
+ if(/garansi|klaim|claim|jaminan/.test(q))return `Keterangan garansi untuk ${p.name}:\n${pk.map(x=>`• ${x[0]}: ${x[2]||'Belum dicantumkan'}`).join('\n')}\n\nJika garansi belum dicantumkan, jangan diasumsikan tersedia. Sebelum bayar, tanyakan masa garansi, syarat klaim, bukti yang diperlukan, dan batas waktu klaim kepada admin.`;
+ if(/login|masuk akun|kode|code|password|kata sandi|link|tautan|otp/.test(q))return `Untuk ${p.name}, metode login dapat berbeda pada setiap paket. Detail login yang pasti belum tentu tercantum di katalog. Ikuti instruksi admin saat aktivasi dan jangan pernah membagikan OTP atau password pribadi. Sebutkan paketnya agar aku bisa cek keterangan yang tersedia.`;
+ if(/durasi|berapa lama|masa aktif|aktif berapa|sampai kapan|bulan|hari|lifetime/.test(q))return `Durasi yang tertulis pada paket ${p.name}:\n${pk.map(x=>'• '+x[0]).join('\n')}\n\nMasa aktif dan waktu mulai dihitung mengikuti ketentuan aktivasi dari admin.`;
+ if(/rekomendasi|pilih yang mana|bagus yang mana|cocok|saran|buat saya|buat aku/.test(q))return `Aku bisa bantu memilih ${p.name}. Boleh tentukan prioritasmu: harga paling hemat, durasi paling panjang, akses private, atau paket yang memiliki garansi? Aku hanya akan merekomendasikan berdasarkan informasi paket yang tersedia.`;
+ if(/tambah|keranjang|beli|pesan|order|checkout/.test(q))return `Untuk membeli ${p.name}: buka produknya di katalog, tekan “Lihat Paket”, pilih paket, baca harganya dan garansinya, lalu tekan “Tambahkan ke keranjang”. Periksa lagi sebelum checkout ke WhatsApp admin.`;
+ return getProductSummary(p);
+}
+function getBotAnswer(raw){
+ const q=normalizeText(raw);if(!q)return 'Tulis pertanyaanmu dulu ya.';
+ const explicit=findProductInQuestion(q);
+ if(explicit){botContext.product=explicit;botContext.depth=0;botContext.topic='product';botContext.packageIndex=null;return getProductSummary(explicit)}
+ const p=botContext.product;
+ const follow=/^(kalau|kalo|terus|lalu|kemudian|yang|itu|dia|produk itu|paket itu|bagaimana|gimana|berapa|apakah|apa|boleh|bisa|jadi|misalnya|contohnya|misal|kalau begitu|kalau gitu|yang tadi|lanjut|lebih|kok|loh|dong|terus kalau)/.test(q)||/(yang tadi|paket tersebut|produk tersebut|kalau itu|kalau yang|terus bagaimana|lalu bagaimana|harganya|garansinya|loginnya|bedanya)/.test(q);
+ if(p&&(follow||/harga|murah|mahal|garansi|klaim|login|password|kode|link|durasi|masa aktif|sharing|private|famplan|arti paket|perbedaan|rekomendasi|pilih|paket|stok/.test(q))){botContext.depth++;botContext.topic='product';return answerProductFollowup(q,p)}
+ if(/halo|hai|hello|assalam|pagi|siang|sore|malam/.test(q))return 'Halo! 🍒 Selamat datang di Angela Store. Aku bisa bantu soal produk, paket, harga, login, garansi, pembayaran, dan cara order. Mulai dengan nama produk, lalu tanyakan apa pun secara bertahap.';
+ if(/produk apa|jual apa|menjual apa|katalog|daftar produk|aplikasi apa saja/.test(q))return `Angela Store menyediakan ${products.length} produk digital dalam kategori berikut:\n${[...new Set(products.map(x=>x.cat))].map(c=>`• ${c}: ${products.filter(x=>x.cat===c).map(x=>x.name).join(', ')}`).join('\n')}\n\nSebutkan nama produk untuk melihat pilihan paket dan harga.`;
+ if(/cara order|cara pesan|pemesanan|pesan produk|beli produk|order/.test(q))return 'Cara order di Angela Store:\n1. Cari aplikasi di katalog atau gunakan pencarian.\n2. Tekan “Lihat Paket”.\n3. Pilih paket dan baca harga, durasi, cara akses, serta garansinya.\n4. Masukkan pilihan ke keranjang.\n5. Periksa keranjang dan tekan “Lanjut ke Checkout”.\n6. Periksa ringkasan, lalu kirim pesanan ke WhatsApp admin.\n\nAdmin akan mengecek stok dan mengonfirmasi total serta pembayaran. Kamu ingin panduan memilih paket, mengubah keranjang, atau mengirim checkout?';
+ if(/garansi|klaim|claim|jaminan/.test(q))return 'Garansi berbeda untuk setiap produk dan paket. Lihat keterangan di detail paket. “Tanpa garansi” berarti tidak ada garansi; jika tidak dicantumkan, jangan diasumsikan ada. Tanyakan masa garansi, syarat klaim, bukti, dan batas waktu klaim kepada admin sebelum membayar. Sebutkan produknya agar aku bisa cek paketnya.';
+ if(/login|masuk akun|kode|code|password|kata sandi|link|tautan|otp/.test(q))return 'Cara login mengikuti produk dan paket. Ada layanan yang mungkin menggunakan email/password, kode, atau tautan khusus sesuai keterangan paket. Ikuti instruksi admin saat aktivasi. Jangan bagikan OTP atau password pribadi. Sebutkan nama produknya agar aku bisa bantu cek informasi yang tersedia.';
+ if(/bayar|pembayaran|transfer|dana|qris|rekening|metode pembayaran|sudah bayar|bukti transfer/.test(q))return 'Website ini belum memproses pembayaran otomatis. Setelah checkout, pesanan dikirim ke WhatsApp admin. Admin mengecek stok, mengonfirmasi total akhir, lalu memberi arahan metode pembayaran. Jangan transfer sebelum menerima konfirmasi resmi dari admin. Setelah bayar, ikuti arahan admin untuk mengirim bukti pembayaran.';
+ if(/keranjang|cart|hapus pesanan|jumlah pesanan|ubah pesanan|salah pilih/.test(q))return 'Pilih paket dari detail produk lalu tekan tombol tambah ke keranjang. Di halaman keranjang kamu bisa melihat nama paket, harga satuan, jumlah, garansi, dan total sementara. Kamu bisa menghapus item atau kembali memilih paket sebelum checkout. Total akhir tetap dikonfirmasi admin.';
+ if(/checkout|whatsapp|wa admin|kirim pesanan|pesan otomatis/.test(q))return 'Pada halaman keranjang tekan “Lanjut ke Checkout”. Periksa produk, paket, jumlah, garansi, dan total sementara. Isi nama jika mau, lalu tekan “Kirim Pesanan ke Admin WhatsApp”. WhatsApp akan terbuka dengan pesan otomatis; periksa lalu tekan tombol kirim di WhatsApp. Pesanan belum terkirim sebelum kamu menekan tombol kirim.';
+ if(/stok|tersedia|ready|habis|ready stock/.test(q))return 'Stok dapat berubah sewaktu-waktu. Website tidak menampilkan stok real-time. Admin akan mengonfirmasi ketersediaan paket sebelum pembayaran.';
+ if(/admin|kontak|hubungi|komplain|keluhan|bantuan/.test(q))return 'Gunakan tombol “Chat Admin WhatsApp” di bagian kontak website. Untuk pemeriksaan akun, stok, kendala aktivasi, atau klaim garansi, admin perlu memeriksa langsung.';
+ if(/kategori|cari produk|pencarian|filter/.test(q))return 'Gunakan kolom pencarian untuk mencari nama aplikasi. Kamu juga bisa memilih kategori Design & Editing, AI & Productivity, Streaming, Music, Education, dan YouTube. Tekan “Lihat Paket” pada produk untuk membuka rincian.';
+ if(/game|mini games|musik|lagu|audio/.test(q))return 'Angela Store memiliki Cherry Mini Games: Tic Tac Toe, Block Blast, Memory Match, Cherry Pop, dan Neon Snake. Tombol Music membuka pemutar audio; kamu dapat memilih file audio dari perangkat.';
+ if(/offline|tanpa internet|internet|online/.test(q))return 'Angela Store dirancang untuk digunakan secara online agar aset dan tautan eksternal dapat dimuat. Ketersediaan WhatsApp untuk mengirim pesanan tentu memerlukan internet.';
+ if(/diskon|promo|voucher|potongan|nego|negosiasi/.test(q))return 'Informasi promo atau diskon belum ditampilkan secara otomatis di website. Silakan tanyakan promo yang sedang berlaku kepada admin sebelum melakukan pembayaran.';
+ if(/aman|keamanan|terpercaya|penipuan|privasi|data/.test(q))return 'Jangan pernah membagikan OTP, password pribadi, atau informasi sensitif melalui chat. Periksa kembali nama produk, paket, dan total pesanan. Lakukan pembayaran hanya setelah admin Angela Store mengonfirmasi pesanan melalui kontak resmi.';
+ if(/terima kasih|makasih|thanks/.test(q))return 'Sama-sama! 🍒 Kalau masih ada yang ingin ditanyakan, lanjutkan saja. Aku akan mencoba menghubungkan pertanyaanmu dengan topik atau produk yang sedang dibahas.';
+ if(p)return answerProductFollowup(q,p);
+ return 'Aku belum yakin maksud pertanyaanmu. Supaya tidak memberi informasi yang salah, coba sebutkan nama produk atau pilih topik: harga & paket, arti istilah, garansi, login, durasi, stok, pembayaran, keranjang, checkout, game, atau musik. Kamu juga boleh menulis dengan bahasa sehari-hari, misalnya “yang paling hemat apa?” atau “kalau yang tadi ada garansi nggak?”. Jika pertanyaan butuh data yang belum ada di website, aku akan arahkan ke admin.';
+}
+/* Lapisan percakapan natural: variasi bahasa, konteks, dan nada ramah */
+const botConversation={lastIntent:'',lastProduct:null,lastPackage:null,turns:0};
+function normalizeCustomerWords(s){
+ let q=normalizeText(s);
+ const replacements=[
+  [/\b(gk|ga|gak|ngga|engga|enggak)\b/g,'tidak'],[/\b(udh|udah|dah)\b/g,'sudah'],[/\b(gmn|gimana)\b/g,'bagaimana'],[/\b(brp|berapa?)\b/g,'berapa'],[/\b(aja|doang)\b/g,'saja'],[/\b(kyk|kaya)\b/g,'seperti'],[/\b(bgt|banget)\b/g,'sekali'],[/\b(min|admin)\b/g,'admin'],[/\b(wa|whatsapp)\b/g,'whatsapp'],[/\b(ongkir)\b/g,'biaya kirim'],[/\b(grnsi|garansii|garansinya)\b/g,'garansi']
+ ];
+ replacements.forEach(([a,b])=>q=q.replace(a,b));
+ return q;
+}
+function conversationalReply(raw,answer){
+ const q=normalizeCustomerWords(raw);
+ botConversation.turns++;
+ if(/terima kasih|makasih|thanks/.test(q))return 'Sama-sama yaa! 🍒 Senang bisa bantu. Kalau masih ada yang bikin ragu, tanya saja—aku bantu jelaskan pelan-pelan sampai kamu yakin sebelum pesan.';
+ if(/bingung|ragu|takut|belum paham|kurang paham/.test(q))return 'Tidak apa-apa, kita bahas pelan-pelan ya 😊 Aku bantu supaya kamu tidak salah pilih. Boleh mulai dari bagian yang paling bikin bingung: harga, perbedaan paket, cara login, atau garansi?';
+ if(/mahal|kemahalan|budget|anggaran|hemat|murah/.test(q)&&botContext.product){
+  const p=botContext.product,pk=p.packages||[];
+  if(pk.length){const min=Math.min(...pk.map(x=>x[1]));const opts=pk.map((x,i)=>({x,i})).filter(o=>o.x[1]===min);botContext.packageIndex=opts[0].i;
+   return `Paham kok, kita cari yang paling ramah di kantong dulu ya 😊 Untuk ${p.name}, pilihan termurah yang tercantum adalah ${opts.map(o=>o.x[0]+' — '+money(o.x[1])).join(', ')}. Aku juga bisa bantu bandingkan apakah selisih harga paket lain sepadan dengan durasi atau garansinya. Mau dibandingkan?`;
+  }
+ }
+ if(/boleh|iya|ya|yup|lanjut|jelasin|jelaskan/.test(q)&&botContext.product&&botContext.topic==='clarify')return answerProductFollowup('jelaskan detail',botContext.product);
+ // Keep the answer grounded; add a friendly closing prompt without inventing product facts.
+ if(answer && answer.length>25 && !/admin|konfirmasi|tanyakan/.test(answer.slice(-100))){
+  if(/harga|paket|garansi|login|durasi|rekomendasi/.test(q))return answer+'\n\nKalau kamu mau, aku bisa bantu cek pilihan lain juga. Yang penting pilih paket yang paling sesuai kebutuhanmu, bukan sekadar tergiur harga ya. 😊';
+ }
+ return answer;
+}
+const getBotAnswerBase=getBotAnswer;
+getBotAnswer=function(raw){
+ const q=normalizeCustomerWords(raw);
+ // Pertanyaan yang menyebut produk tetap diproses oleh mesin katalog asli.
+ let answer=getBotAnswerBase(q);
+ // Perbaiki nada untuk jawaban fallback agar tetap ramah dan tidak menghakimi.
+ if(/aku belum yakin maksud pertanyaanmu/i.test(answer)){
+  botContext.topic='clarify';
+  answer='Boleh, aku bantu cari tahu ya 😊 Supaya jawabanku tepat dan tidak asal menebak, produk atau bagian mana yang kamu maksud? Kamu bisa tulis nama aplikasinya, atau pilih: harga, paket, garansi, cara login, pembayaran, keranjang, maupun checkout. Tidak harus pakai bahasa formal—tulis saja seperti biasa.';
+ }
+ return conversationalReply(raw,answer);
+};
+function sendChat(){let input=document.getElementById('chatInput'),v=input.value.trim();if(!v)return;addChat(v,'user');input.value='';let box=document.getElementById('chatMessages');let typing=document.createElement('div');typing.className='chatBubble bot';typing.textContent='Sebentar ya, aku cek dulu…';box.appendChild(typing);box.scrollTop=box.scrollHeight;setTimeout(()=>{let answer=getBotAnswer(v);typing.textContent=answer;box.scrollTop=box.scrollHeight},320)}
+
+
+/* ===== ANGELA ASSISTANT v2: intent, slang, typo, and follow-up layer ===== */
+const angelaPreviousAnswer=getBotAnswer;
+function angelaCleanQuestion(input){
+ let q=normalizeText(String(input||''));
+ const map=[
+  [/\b(gk|ga|gak|ngga|engga|enggak|nggak|kagak)\b/g,'tidak'],[/\b(udh|udah|dah)\b/g,'sudah'],[/\b(blm|belom|belum)\b/g,'belum'],
+  [/\b(gmn|gimana|gmna)\b/g,'bagaimana'],[/\b(knp|kenapa|ngapa)\b/g,'mengapa'],[/\b(brp|brapa)\b/g,'berapa'],[/\b(dmn|dimana)\b/g,'dimana'],
+  [/\b(yg|yng)\b/g,'yang'],[/\b(dgn)\b/g,'dengan'],[/\b(utk|buat)\b/g,'untuk'],[/\b(bgt|banget)\b/g,'sekali'],
+  [/\b(aja|doang)\b/g,'saja'],[/\b(kyk|kek)\b/g,'seperti'],[/\b(krn|soalnya)\b/g,'karena'],[/\b(sm|sama)\b/g,'sama'],
+  [/\b(ty|tq|thx)\b/g,'terima kasih'],[/\b(mks|makasi|makasihh)\b/g,'makasih'],[/\b(grnsi|garansii|garansi nya)\b/g,'garansi'],
+  [/\b(pw)\b/g,'password'],[/\b(akun nya|akunnya)\b/g,'akun'],[/\b(loginnya|login nya)\b/g,'login'],[/\b(harganya|harga nya)\b/g,'harga']
+ ];
+ map.forEach(([re,val])=>q=q.replace(re,val));
+ return q;
+}
+function angelaPickPackage(q,p){
+ const pk=p?.packages||[]; if(!pk.length)return null;
+ let m=q.match(/(?:paket|nomor|no|pilihan|ke)\s*(\d+)/);
+ if(m&&pk[Number(m[1])-1])return Number(m[1])-1;
+ const exact=pk.findIndex(x=>q.includes(normalizeText(x[0])));
+ return exact>=0?exact:null;
+}
+function angelaAssistantV2(raw){
+ const q=angelaCleanQuestion(raw); const p=botContext.product; const pk=p?.packages||[];
+ if(!q)return 'Tulis pertanyaanmu dulu ya 😊';
+ // Remember the package explicitly mentioned so short follow-ups stay on topic.
+ const chosen=angelaPickPackage(q,p);
+ if(chosen!==null)botContext.packageIndex=chosen;
+ if(p&&/(paling hemat|termurah|harga termurah|yang murah|murah yang mana|budget pas|di bawah\s*\d+)/.test(q)){
+  const min=Math.min(...pk.map(x=>Number(x[1])||Infinity)); const i=pk.findIndex(x=>Number(x[1])===min);
+  if(i>=0){botContext.packageIndex=i;return `Kalau ingin mulai dari pilihan paling hemat, untuk ${p.name} ada paket ${pk[i][0]} seharga ${money(pk[i][1])}${pk[i][2]?' ('+pk[i][2]+')':''}. 😊\n\nBiar tidak salah pilih, cek juga apakah jenis akses dan ketentuan garansinya sudah sesuai kebutuhanmu. Mau aku bandingkan dengan paket lainnya?`;}
+ }
+ if(p&&/(paling worth|worth it|paling bagus|terbaik|rekomendasi|mending|lebih worth)/.test(q)){
+  return `Aku bantu pilih yang paling masuk akal ya 😊 Untuk ${p.name}, aku perlu tahu prioritasmu dulu: ingin harga paling hemat, durasi paling panjang, atau paket dengan keterangan garansi yang lebih jelas? Aku tidak mau asal menyebut satu paket terbaik kalau kebutuhanmu belum diketahui.`;
+ }
+ if(p&&/(semua harga|daftar harga|list harga|harga berapa|harganya berapa|berapa aja|paket apa saja|ada paket apa|pilihan paket)/.test(q))return `Ini pilihan paket ${p.name} yang tercantum di katalog saat ini:\n${getProductPackageText(p)}\n\nKalau mau, sebutkan nomor paketnya. Aku bisa jelaskan detail atau membandingkannya.`;
+ if(p&&botContext.packageIndex!==null&&pk[botContext.packageIndex]&&/(yang itu|itu ada|kalau itu|paket tadi|yang tadi|pilihan tadi|terus|lalu)/.test(q)){
+  const x=pk[botContext.packageIndex];
+  if(/garansi|jaminan|claim|klaim/.test(q))return `Untuk paket ${x[0]} ${p.name}, keterangan garansinya: ${x[2]||'belum dicantumkan di katalog'}. Kalau belum tertulis, jangan diasumsikan ada ya. Sebaiknya pastikan masa berlaku dan syarat klaim ke admin sebelum pembayaran.`;
+  if(/login|masuk|password|kode|link|tautan/.test(q))return `Untuk paket ${x[0]} ${p.name}, katalog belum memberikan rincian metode login yang bisa kupastikan. Jadi aku tidak mau menebak apakah memakai password, kode, atau link. Admin bisa memastikan cara aktivasi yang benar.`;
+  if(/harga|berapa/.test(q))return `Harga paket ${x[0]} ${p.name} adalah ${money(x[1])}.`;
+  if(/durasi|lama|aktif|berapa bulan|berapa hari/.test(q))return `Nama paket yang tercantum adalah ${x[0]}. Rincian masa aktif mengikuti keterangan paket dan konfirmasi admin. Kalau durasinya belum tertulis jelas, sebaiknya dipastikan dulu sebelum membayar.`;
+ }
+ if(/^((iya|ya|boleh|oke|ok|sip|lanjut|mau|gas)( dong| ya| deh)?|jelasin|jelaskan)$/.test(q)&&p&&botContext.topic==='clarify')return getProductSummary(p);
+ // Common general questions that should not require a product name.
+ if(/(bisa bayar|cara bayar|metode bayar|pembayaran apa|transfer kemana)/.test(q))return 'Setelah kamu mengirim checkout ke WhatsApp, admin akan mengecek pesanan dan mengonfirmasi total serta metode pembayaran. Tunggu arahan admin terlebih dahulu dan jangan transfer sebelum ada konfirmasi resmi ya.';
+ if(/(ongkir|pengiriman|dikirim|kirim ke rumah|alamat rumah|fisik|barang fisik)/.test(q))return 'Produk di Angela Store berupa layanan digital. Detail aktivasi atau akses diberikan sesuai ketentuan paket setelah pesanan dikonfirmasi admin. Kalau yang kamu maksud pengiriman fisik, produk di katalog ini bukan barang fisik.';
+ if(/(buka|tidak bisa|ga bisa|gagal|error|bug|rusak|bermasalah|kendala)/.test(q)&&/(website|situs|web|keranjang|checkout|chatbot|chat bot)/.test(q))return 'Yuk kita cek pelan-pelan. 😊 Bagian mana yang bermasalah—website tidak bisa dibuka, tombol tidak merespons, keranjang, atau checkout WhatsApp? Kalau terkait pesanan atau akun, admin perlu memeriksa detailnya langsung.';
+ let answer=angelaPreviousAnswer(raw);
+ // Keep responses warm and readable without changing factual catalogue data.
+ if(answer&&answer.length>40&&!/(😊|🍒|♡)/.test(answer))answer=answer+' 😊';
+ return answer;
+}
+getBotAnswer=angelaAssistantV2;
+
+</script>
+</body>
+</html>
